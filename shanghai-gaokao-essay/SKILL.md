@@ -10,13 +10,14 @@ description: Write stable, high-scoring (62+/70) Shanghai gaokao (上海高考) 
 ## 执行流程（严格按顺序，不可跳步）
 
 ```
-Step 1 审题拆解  → 读 references/prompt-analysis.md，完成审题清单
-Step 2 立意与提纲 → 读 references/structure-and-outline.md，产出提纲
-Step 3 成文     → 读 references/language-and-style.md + references/evidence-bank.md，写全文
+Step 0 能力判断  → 若具备网络搜索能力，读 references/search-enhancement.md，按其时机表在后续各步嵌入搜索动作
+Step 1 审题拆解  → 读 references/prompt-analysis.md，完成审题清单（陌生概念/真题：先搜索校准）
+Step 2 立意与提纲 → 读 references/structure-and-outline.md，产出提纲（按素材缺口定向搜索，最多补2例）
+Step 3 成文     → 读 references/language-and-style.md + references/evidence-bank.md，写全文（库外引用必须搜索核验）
 Step 4 自查修改  → 用本文件末尾的《交稿前自查清单》逐项核对，修改后交付
 ```
 
-每一步的输出（审题结论、提纲）必须先显式写出来再进入下一步，禁止直接一步成文。这是防止"审题浅、平均用力、观点不集中"这一AI最大失分点的核心机制。
+每一步的输出（审题结论、提纲）必须先显式写出来再进入下一步，禁止直接一步成文。这是防止"审题浅、平均用力、观点不集中"这一AI最大失分点的核心机制。无搜索能力时跳过Step 0及所有搜索动作，离线流程自足可用。
 
 ## 必须规避的九大AI写作通病（阅卷名师实测反馈）
 
@@ -63,6 +64,7 @@ Step 4 自查修改  → 用本文件末尾的《交稿前自查清单》逐项�
 | `references/structure-and-outline.md` | Step 2 必读。五段骨架逐段写法、四种题型的结构变体、提纲模板 |
 | `references/language-and-style.md` | Step 3 必读。语言风格规范、句式库、标题拟法、首尾段写法与范例 |
 | `references/evidence-bank.md` | Step 3 必读。已验证的引证库（哲学家观点、人物事例、古诗文）及使用规则 |
+| `references/search-enhancement.md` | 具备网络搜索能力时必读（Step 0）。搜索时机表、四大搜索目的（审题校准/时代素材/引用核验/事实核验）、结果落实纪律 |
 | `references/exemplar-outline.md` | 需要完整参照时读。一份真题的全流程示范（审题→提纲→关键段落） |
 
 ## 硬性格式要求
@@ -76,7 +78,7 @@ Step 4 自查修改  → 用本文件末尾的《交稿前自查清单》逐项�
 3. 是否完成了概念界定（且用了排除式定义）？
 4. 是否有让步段（承认对方合理性）？是否有归因层和边界/异化层？
 5. 每个例子后是否有≥2句阐释？是否存在三例连排超过一处？
-6. 所有引文是否都来自evidence-bank或确凿无疑？删除任何存疑引用。
+6. 所有引文是否都来自evidence-bank、经搜索核验、或确凿无疑？删除任何存疑引用；具体数字与作品归属是否已核验？
 7. 标题是否含观点/概念，题眼是否在正文至少出现两次？
 8. 结尾段是否回扣题干关键词并落在"人"的主体性上？
 9. "然而/但是"是否≤3次？有无小标题、序号、分点？
