@@ -1,0 +1,47 @@
+{
+  "_comment": "Single source of truth for mechanical essay checks. scripts/check_essay.py reads this file; prose rules in references/ cite it instead of repeating numbers. 'hard' findings fail the check, 'soft' findings are warnings to review.",
+  "length": {
+    "min_with_punct": 900,
+    "max_with_punct": 1000,
+    "exam_minimum": 800,
+    "deduct_per_chars": 50
+  },
+  "paragraphs": {
+    "min": 6,
+    "max": 8,
+    "first_max_chars": 150,
+    "last_min_chars": 80,
+    "last_max_chars": 120
+  },
+  "limits": {
+    "however_total": 3,
+    "exclamation_total": 1,
+    "dash_total": 2,
+    "parallelism_runs": 2,
+    "min_sentence_len_stdev": 6.0
+  },
+  "banned_terms": [
+    "综上所述", "笔者", "本文认为", "本文将", "维度", "赋能", "闭环", "抓手", "底层逻辑", "方法论层面",
+    "值得注意的是", "毋庸置疑", "在当今社会", "在这个飞速发展的时代"
+  ],
+  "banned_title_terms": [
+    "破茧成蝶", "扬帆起航", "砥砺前行", "不忘初心", "乘风破浪"
+  ],
+  "mechanical_order_terms": ["首先", "其次", "再次", "最后"],
+  "however_terms": ["然而", "但是"],
+  "signature_phrases": {
+    "_comment": "Phrases the skill itself used to prescribe; allowed at most 'max' times per essay so that essays written with this skill do not converge on the same verbal tics.",
+    "更值得警惕的是": 1,
+    "诚然": 1,
+    "归根结底": 1,
+    "由此观之": 1,
+    "渡口": 1,
+    "不是": 6,
+    "真正的": 3,
+    "异化": 3
+  },
+  "claims": {
+    "min_quote_chars": 6,
+    "speaker_stoplist": ["我们", "他们", "人们", "有人", "大家", "学者", "专家", "有学者", "有人认为", "人们认为", "一般", "通常"]
+  }
+}
