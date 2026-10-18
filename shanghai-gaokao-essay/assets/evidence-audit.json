@@ -1,0 +1,1979 @@
+{
+ "_meta": {
+  "audited": "2026-10-18",
+  "method": "4 parallel subagents searched T1/T2 sources per claim; orchestrator re-fetched every cited URL and string-matched the excerpt (55 hit / 12 miss / 15 unfetchable of 82), then manually re-checked the high-impact items (鲁迅《半夏小集》/《小杂感》, 司马迁《报任安书》, 项羽《项羽本纪》, 《论语·子罕》, 项飙, 费孝通).",
+  "tiers": {
+   "T1": "primary/official/encyclopedic-scholarly (SEP, publisher, nobelprize.org, museum, ctext, Xinhua/People's Daily)",
+   "T2": "Wikisource/Wikipedia/Wikiquote/Project Gutenberg",
+   "T3": "media/blog/Baidu/Zhihu — never sole basis"
+  },
+  "caveat": "Verdicts are subagent self-reports plus automated excerpt matching; 15 URLs were unfetchable by the recheck script (non-ASCII URL encoding, anti-bot sites) and are not independently confirmed. Re-audit before relying on any single entry for a high-stakes claim."
+ },
+ "entries": [
+  {
+   "id": "1.1",
+   "person": "苏格拉底",
+   "entry_text": "苏格拉底：\"认识你自己\"；自知无知（\"我唯一知道的是我一无所知\"）。",
+   "claims_checked": [
+    {
+     "claim": "\"认识你自己\"是苏格拉底的话",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Know_thyself",
+      "https://en.wikipedia.org/wiki/Delphi"
+     ],
+     "source_tier": "T2",
+     "excerpt": "Carved into the temple were three phrases: γνῶθι σεαυτόν (\"know thyself\")",
+     "note": "原为德尔斐神庙铭文；苏格拉底在柏拉图对话中常引用并奉为宗旨，但不是他首创。写作'德尔斐神庙箴言，苏格拉底奉为宗旨'更稳妥。"
+    },
+    {
+     "claim": "\"我唯一知道的是我一无所知\"为苏格拉底原话",
+     "verdict": "corrected",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/I_know_that_I_know_nothing",
+      "https://doi.org/10.25180/lj.v21i2.199"
+     ],
+     "source_tier": "T2",
+     "excerpt": "\"I know that I know nothing\" is a saying derived from Plato's account of ... Socrates",
+     "note": "是对《申辩》21d-22d的后世概括，非原话；原意是'我不自以为知道我不知道的东西'。不要加引号署名为原话。"
+    }
+   ],
+   "overall": "keep_paraphrase_only",
+   "suggested_replacement_text": "苏格拉底奉德尔斐神庙'认识你自己'为宗旨；他自觉'不自以为知道自己不知道的事'（后人概括为'自知无知'）。"
+  },
+  {
+   "id": "1.2",
+   "person": "康德",
+   "entry_text": "康德：人是目的，不是手段；启蒙即敢于运用自己的理智。",
+   "claims_checked": [
+    {
+     "claim": "人是目的、不只是手段（人性公式）",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://plato.stanford.edu/entries/kant-moral/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "treat humanity, whether in ourselves or in others, as a means only but always as an end in itself",
+     "note": "康德原话是'不仅仅/仅仅作为手段，而同时作为目的'，'不是手段'略过度简化；写'不能仅仅当作手段'。出自《道德形而上学奠基》。"
+    },
+    {
+     "claim": "启蒙即敢于运用自己的理智（《回答问题：何谓启蒙？》）",
+     "verdict": "verified",
+     "source_urls": [
+      "https://plato.stanford.edu/entries/kant-social-political/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "the essay “An Answer to the Question: What is Enlightenment?”",
+     "note": "SEP确认该文；'敢于运用你自己的理智(Sapere aude)'为该文标准表述（此句具体措辞由本人对原文已知内容确认，未在所取页面摘录）。"
+    }
+   ],
+   "overall": "fix",
+   "suggested_replacement_text": "康德：人是目的，不能仅仅被当作手段；启蒙就是敢于运用自己的理智、走出自己造成的不成熟状态。"
+  },
+  {
+   "id": "1.3",
+   "person": "尼采",
+   "entry_text": "尼采：人是一根系于动物与超人之间的绳索（《查拉图斯特拉如是说》）；\"在自己身上克服这个时代\"。",
+   "claims_checked": [
+    {
+     "claim": "人是系于动物与超人之间的绳索，出自《查拉图斯特拉如是说》",
+     "verdict": "verified",
+     "source_urls": [
+      "https://www.gutenberg.org/cache/epub/1998/pg1998-images.html"
+     ],
+     "source_tier": "T2",
+     "excerpt": "Man is a rope stretched between the animal and the Superman—a rope over an abyss.",
+     "note": "序言第4节。"
+    },
+    {
+     "claim": "\"在自己身上克服这个时代\"",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "http://www.thenietzschechannel.com/works-pub/cw/cwp-dual.htm"
+     ],
+     "source_tier": "T2",
+     "excerpt": "What does a philosopher demand of himself first and last? To overcome his time in himself, to become \"timeless.\"",
+     "note": "出自《瓦格纳事件》序言，非《查拉图斯特拉》；原意是哲学家对自己的要求，须标明出处，且中文为意译，建议不加引号。"
+    }
+   ],
+   "overall": "keep_paraphrase_only",
+   "suggested_replacement_text": "尼采称人是系于动物与超人之间的绳索（《查拉图斯特拉如是说》序言）；他又说哲人须在自己身上克服自己的时代（《瓦格纳事件》序言）。"
+  },
+  {
+   "id": "1.4",
+   "person": "王阳明",
+   "entry_text": "王阳明：龙场悟道，\"知行合一\"；心外无物。",
+   "claims_checked": [
+    {
+     "claim": "龙场悟道",
+     "verdict": "unverifiable",
+     "source_urls": [
+      "https://plato.stanford.edu/entries/wang-yangming/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "Wang is perhaps best known for his doctrine of the “unity of knowing and acting”",
+     "note": "SEP摘取页面未命中'Longchang'检索；龙场悟道（1508年贬谪贵州龙场驿）为通行史实，本次未在T1/T2源取得摘录。"
+    },
+    {
+     "claim": "知行合一",
+     "verdict": "verified",
+     "source_urls": [
+      "https://plato.stanford.edu/entries/wang-yangming/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "Wang’s most distinctive and well-known doctrine is the unity of knowing and acting (zhī xíng hé yī)",
+     "note": "注意：龙场悟道主要是'心即理/格物'之悟，'知行合一'是次年(1509)在贵阳讲学提出，写'龙场悟道，知行合一'并列可，但勿说悟道当时即提出知行合一。"
+    },
+    {
+     "claim": "心外无物（心即理，心外无理无事）",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://plato.stanford.edu/entries/wang-yangming/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "“The mind is Pattern. Is there any affair outside the mind? Is there any Pattern outside the mind?”",
+     "note": "SEP引《传习录》：心外无事、心外无理；'心外无物'亦为王阳明常用语（'心外无物'见《传习录》），但本次T1仅确认'心外无理/事'。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "1.5",
+   "person": "李普曼",
+   "entry_text": "李普曼《舆论》（一译《公众舆论》）：拟态环境——大众媒介为我们构造的\"关于世界的图像\"并非世界本身。",
+   "claims_checked": [
+    {
+     "claim": "《Public Opinion》(1922)；pseudo-environment概念",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Public_Opinion_(book)",
+      "https://en.wikipedia.org/wiki/Walter_Lippmann"
+     ],
+     "source_tier": "T2",
+     "excerpt": "people construct a pseudo-environment that is a subjective, biased, and necessarily abridged mental image of the world",
+     "note": "'拟态环境'为pseudo-environment的中文译法（李普曼称'脑中的图像'）。注意：中文传播学称'拟态环境'，是否由李普曼'媒介构造'需谨慎——他强调的是人自身心智+媒介共同造成；'大众媒介构造'是传播学后续（如沃尔特·李普曼+议程设置）的解读。"
+    }
+   ],
+   "overall": "keep_paraphrase_only",
+   "suggested_replacement_text": "李普曼在《舆论》（1922）中指出，人们依赖脑中的'图像'而非直接经验认识世界，媒介提供的'拟态环境'并不等于真实世界。"
+  },
+  {
+   "id": "1.6",
+   "person": "鲍德里亚",
+   "entry_text": "鲍德里亚：消费社会中物的\"符号价值\"压过使用价值。",
+   "claims_checked": [
+    {
+     "claim": "sign value概念及消费社会论",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Jean_Baudrillard"
+     ],
+     "source_tier": "T2",
+     "excerpt": "The sign value : an object's value within a system of objects.",
+     "note": "符号价值(sign value)是鲍德里亚（《物体系》《消费社会》）核心概念；'压过使用价值'为概括，合理。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "1.7",
+   "person": "项飙",
+   "entry_text": "项飙：当代社会的\"悬浮\"状态——人们像蜂鸟振翅，悬在空中不敢停。",
+   "claims_checked": [
+    {
+     "claim": "项飙提出'悬浮'并用蜂鸟比喻",
+     "verdict": "verified",
+     "source_urls": [
+      "https://www.jiemian.com/article/215429.html",
+      "https://news.qq.com/rain/a/20220323A03GKF00"
+     ],
+     "source_tier": "T2",
+     "excerpt": "就像蜂鸟，一种很小的鸟，必须高频度的振荡翅膀，把自己浮在空中。……往大了讲，中国整个社会，很多人都在悬浮着。",
+     "note": "访谈2014年(界面·正午)；原指珠三角打工群体，后推及整个社会；2022年与桑德尔对谈再提'蜂鸟'意象。可用，但建议注明'项飙指出'，勿说'当代社会'普遍的学术定论。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "1.8",
+   "person": "马斯洛",
+   "entry_text": "马斯洛：需求层次理论——匮乏性需求与成长性需求之别。",
+   "claims_checked": [
+    {
+     "claim": "需求层次理论（1943）",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs"
+     ],
+     "source_tier": "T2",
+     "excerpt": "Maslow proposed his hierarchy of needs in his 1943 paper \"A Theory of Human Motivation\"",
+     "note": "1943年提出。"
+    },
+    {
+     "claim": "匮乏性需求(D-needs)与成长性需求(B-needs)之分",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://doi.org/10.1037/10793-000"
+     ],
+     "source_tier": "T1",
+     "excerpt": "Deficiency Motivation and Growth Motivation（Toward a Psychology of Being章节）",
+     "note": "该区分出自1962年《存在心理学探索》，不在1943年原文；表述可用。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "1.9",
+   "person": "费斯汀格",
+   "entry_text": "费斯汀格：社会比较理论——人在缺乏客观标准时通过与他人比较来自我评价。",
+   "claims_checked": [
+    {
+     "claim": "社会比较理论由费斯汀格1954年提出，基本命题",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Social_comparison_theory"
+     ],
+     "source_tier": "T2",
+     "excerpt": "initially proposed by social psychologist Leon Festinger in 1954 ... individuals drive to gain accurate self-evaluations",
+     "note": "'缺乏客观标准时与他人比较'是该理论核心假设之一，与原文一致。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "1.10",
+   "person": "韩炳哲",
+   "entry_text": "韩炳哲《倦怠社会》：功绩社会中人从\"应当\"的规训转向\"能够\"的自我剥削。（用于优绩主义、内卷类话题）",
+   "claims_checked": [
+    {
+     "claim": "《倦怠社会》(Müdigkeitsgesellschaft)作者及主旨",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Byung-Chul_Han"
+     ],
+     "source_tier": "T2",
+     "excerpt": "In The Burnout Society (original German title: Müdigkeitsgesellschaft), Han characterizes today's society as a pathological landscape",
+     "note": "'功绩社会''从规训(应当)到能够/自我剥削'是韩炳哲对福柯规训社会的转进，为书的核心论点；T2页面未逐字摘到该句，据书的通行内容。"
+    },
+    {
+     "claim": "'优绩主义'用词",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Byung-Chul_Han"
+     ],
+     "source_tier": "T2",
+     "excerpt": "",
+     "note": "中文常译'功绩社会'(achievement society)；与桑德尔的'优绩主义'(meritocracy)不是同一概念，用于优绩主义话题时须谨慎，勿混用。"
+    }
+   ],
+   "overall": "keep_paraphrase_only",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "1.11",
+   "person": "马克斯·韦伯",
+   "entry_text": "马克斯·韦伯：工具理性——以效率计算一切价值，手段吞没目的；现代性\"铁笼\"。（用于效率崇拜、意义焦虑类话题）",
+   "claims_checked": [
+    {
+     "claim": "工具理性(Zweckrationalität)与铁笼概念出自韦伯",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Iron_cage"
+     ],
+     "source_tier": "T2",
+     "excerpt": "the iron cage is a concept introduced by Max Weber to describe the increased rationalization inherent in social life",
+     "note": "'铁笼'见《新教伦理与资本主义精神》(帕森斯译；德文stahlhartes Gehäuse，或译'钢铁般的外壳')；'手段吞没目的'是概括性意译，属合理阐释。"
+    }
+   ],
+   "overall": "keep_paraphrase_only",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "1.12",
+   "person": "齐格蒙特·鲍曼",
+   "entry_text": "齐格蒙特·鲍曼：\"液态现代性\"——现代关系如液体，易建亦易断，\"一言不合便拉黑\"是液态关系的标本。（用于人际联结、离开类话题）",
+   "claims_checked": [
+    {
+     "claim": "'液态现代性'概念属鲍曼",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Liquid_modernity"
+     ],
+     "source_tier": "T2",
+     "excerpt": "Introduced as \"liquid\" modernity by the Polish sociologist Zygmunt Bauman",
+     "note": "《液态现代性》(2000)。"
+    },
+    {
+     "claim": "'一言不合便拉黑'是液态关系标本",
+     "verdict": "verified_with_caveat",
+     "source_urls": [],
+     "source_tier": "T3",
+     "excerpt": "",
+     "note": "这是作者举例类比，非鲍曼所说；使用时勿归于鲍曼。鲍曼本人用过'液态之爱'(Liquid Love, 2003)论关系脆弱。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "1.13",
+   "person": "哈特穆特·罗萨",
+   "entry_text": "哈特穆特·罗萨：《加速：现代社会中时间结构的改变》——社会加速导致空间、物、行动、时间、自我五重异化。（用于时间密度、生活节奏类话题）",
+   "claims_checked": [
+    {
+     "claim": "中文书名及原著",
+     "verdict": "verified",
+     "source_urls": [
+      "https://book.douban.com/subject/26681330/"
+     ],
+     "source_tier": "T3",
+     "excerpt": "加速 现代社会中时间结构的改变 作者:[德]哈特穆特·罗萨 译者:董璐 北京大学出版社 2015-12 原作名:Beschleunigung: die Veränderung der Zeitstrukturen in der Moderne",
+     "note": "另有图书馆编目(opac.uibe.edu.cn)ISBN 978-7-301-26518-5佐证书名；T3仅作佐证，书名事实可靠(出版社页)。"
+    },
+    {
+     "claim": "'五重异化'(空间、物、行动、时间、自我与社会世界)",
+     "verdict": "unverifiable",
+     "source_urls": [
+      "https://en.unipress.dk/udgivelser/a/alienation-and-acceleration/"
+     ],
+     "source_tier": "T2",
+     "excerpt": "Modern life is speeding-up, incessantly.",
+     "note": "本次未能从T1/T2取得'五种异化'的逐字证据；该框架通常认为出自罗萨《Alienation and Acceleration》(2010)而非必然为《加速》中文版；且'加速导致五重异化'可能与原文论述存在差异（罗萨原书重点是三种加速形式：技术加速、社会变迁加速、生活节奏加速）。"
+    }
+   ],
+   "overall": "keep_paraphrase_only",
+   "suggested_replacement_text": "罗萨在《加速：现代社会中时间结构的改变》中分析了技术加速、社会变迁加速与生活节奏加速三种形式，并论及加速使人与空间、物、行动、时间、自我之间产生异化（后者可参其《异化与加速》）。"
+  },
+  {
+   "id": "1.14",
+   "person": "沃尔特·本雅明",
+   "entry_text": "沃尔特·本雅明：机械复制时代，艺术作品的\"灵韵\"（Aura）随复制技术而消散。（用于批量生产、标准化的异化分析）",
+   "claims_checked": [
+    {
+     "claim": "《机械复制时代的艺术作品》提出aura随机械复制消散",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/The_Work_of_Art_in_the_Age_of_Mechanical_Reproduction"
+     ],
+     "source_tier": "T2",
+     "excerpt": "mechanical reproduction devalues the aura (uniqueness) of a work of art",
+     "note": "1935年；'灵韵'(又译光晕/氛围)；原意关乎独一无二性/此时此地，扩展到'批量生产的异化'属引申。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "1.15",
+   "person": "古斯塔夫·勒庞",
+   "entry_text": "古斯塔夫·勒庞《乌合之众》：个体进入群体后独立思考被淹没，群体易冲动、易受暗示。（用于从众、群体极化类话题）",
+   "claims_checked": [
+    {
+     "claim": "《乌合之众》(Psychologie des foules, 1895)及基本观点",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/The_Crowd:_A_Study_of_the_Popular_Mind"
+     ],
+     "source_tier": "T2",
+     "excerpt": "Social psychology book by Gustave Le Bon (1895)",
+     "note": "'群体极化'是后来Moscovici/Stoner的概念，非勒庞；话题标签用'从众'即可，勿说勒庞论'群体极化'。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "1.16",
+   "person": "丹尼尔·卡尼曼",
+   "entry_text": "丹尼尔·卡尼曼：\"峰终定律\"——人对经历的记忆由峰值与结尾决定，而非全程平均。（用于经历与感知类话题）",
+   "claims_checked": [
+    {
+     "claim": "峰终定律(peak–end rule)属卡尼曼",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Peak-end_rule"
+     ],
+     "source_tier": "T2",
+     "excerpt": "an elaboration on the snapshot model of remembered utility proposed by Barbara Fredrickson and Daniel Kahneman",
+     "note": "由Fredrickson与卡尼曼共同提出(1993年Kahneman等冷水实验)；写'卡尼曼等人'更准；'定律'是通俗叫法，学术称peak-end rule(启发式/规则)。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "2.1",
+   "person": "密尔",
+   "entry_text": "密尔《论自由》：多数人的暴政；即使全人类只有一人持异见，压制它也是掠夺。",
+   "claims_checked": [
+    {
+     "claim": "《论自由》谈\"多数人的暴政\"",
+     "verdict": "verified",
+     "source_urls": [
+      "https://www.gutenberg.org/cache/epub/34901/pg34901.txt"
+     ],
+     "source_tier": "T2",
+     "excerpt": "\"the tyranny of the majority\" is now generally included among the evils against which society requires to be on its guard",
+     "note": "Ch.1；密尔借自托克维尔的说法，但在书中确有使用（Gutenberg全文）。"
+    },
+    {
+     "claim": "即使全人类只有一人持异见，压制它也是掠夺",
+     "verdict": "verified",
+     "source_urls": [
+      "https://www.gutenberg.org/cache/epub/34901/pg34901.txt"
+     ],
+     "source_tier": "T2",
+     "excerpt": "If all mankind minus one, were of one opinion... mankind would be no more justified in silencing that one person",
+     "note": "Ch.2。\"robbing the human race\"原文：the peculiar evil of silencing the expression of an opinion is, that it is robbing the human race。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "2.2",
+   "person": "波普尔",
+   "entry_text": "波普尔：可证伪性——科学与独断的分界；真理在不断的猜想与反驳中生长。",
+   "claims_checked": [
+    {
+     "claim": "可证伪性是科学与非科学的分界（划界标准）",
+     "verdict": "verified",
+     "source_urls": [
+      "https://plato.stanford.edu/entries/popper/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "3. The Problem of Demarcation; 4. Basic Statements, Falsifiability and Convention",
+     "note": "SEP目录及正文确认划界问题与可证伪性。"
+    },
+    {
+     "claim": "真理在猜想与反驳中生长",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://plato.stanford.edu/entries/popper/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "support can be obtained only from observations undertaken as tests (by 'attempted refutations')",
+     "note": "属对《猜想与反驳》(1963)思想的概括，非原话；作转述使用。"
+    }
+   ],
+   "overall": "keep_paraphrase_only",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "2.3",
+   "person": "托马斯·库恩",
+   "entry_text": "托马斯·库恩《科学革命的结构》：\"范式\"更替——科学进步不是渐进积累，而是范式危机后的革命性转换。（与波普尔配合用于科学认识论、求是与求不论证）",
+   "claims_checked": [
+    {
+     "claim": "《科学革命的结构》(1962)提出范式更替、危机后革命",
+     "verdict": "verified",
+     "source_urls": [
+      "https://plato.stanford.edu/entries/thomas-kuhn/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "A crisis in science arises when confidence is lost in the ability of the paradigm... Crisis is followed by a scientific revolution if the existing paradigm is superseded by a rival.",
+     "note": "1962年，SEP确认。"
+    },
+    {
+     "claim": "括注\"求是与求不论证\"",
+     "verdict": "unverifiable",
+     "source_urls": [],
+     "source_tier": "T3",
+     "excerpt": "",
+     "note": "该短语语义不通，疑为笔误，无法核实含义。"
+    }
+   ],
+   "overall": "fix",
+   "suggested_replacement_text": "托马斯·库恩《科学革命的结构》：\"范式\"更替——科学进步不是渐进积累，而是范式危机后的革命性转换。（与波普尔配合用于科学认识论、科学与求真类话题）"
+  },
+  {
+   "id": "2.4",
+   "person": "海德格尔",
+   "entry_text": "海德格尔：技术的\"座架\"（Gestell）把一切逼促为可计算的资源；人于\"沉沦\"于常人（das Man）中失去本真。",
+   "claims_checked": [
+    {
+     "claim": "技术的\"座架\"(Gestell)",
+     "verdict": "verified",
+     "source_urls": [
+      "https://plato.stanford.edu/entries/heidegger/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "gathered or organized, as a unified whole, in what Heidegger calls das Gestell",
+     "note": "《技术的追问》；概念为海德格尔所创。"
+    },
+    {
+     "claim": "把一切逼促为（可计算的）资源",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://plato.stanford.edu/entries/heidegger/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "Being as standing reserve, mere material for technological manipulation",
+     "note": "Bestand(持存物/备用物)；\"逼促\"对应herausfordern；\"可计算\"是引申，原文强调随时可调用、待命，非严格'计算'。"
+    },
+    {
+     "claim": "沉沦(Verfallen)于常人(das Man)中失去本真",
+     "verdict": "verified",
+     "source_urls": [
+      "https://plato.stanford.edu/entries/heidegger/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "Heidegger describes this condition of inauthentic existence as 'fallenness'... das Man",
+     "note": "《存在与时间》；SEP译'the anyone/they'。原文有错字：于\"沉沦\"于。"
+    }
+   ],
+   "overall": "fix",
+   "suggested_replacement_text": "海德格尔：技术的\"座架\"（Gestell）把一切逼促为随时可供调用的\"持存物\"（资源）；人沉沦于\"常人\"（das Man）之中，失去本真。"
+  },
+  {
+   "id": "2.5",
+   "person": "叔本华",
+   "entry_text": "叔本华：人生如钟摆，摇摆于欲望的痛苦与满足后的无聊之间。",
+   "claims_checked": [
+    {
+     "claim": "人生如钟摆摇摆于痛苦与无聊之间",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikisource.org/wiki/Page:The_World_as_Will_and_Idea_-_Schopenhauer,_tr._Haldane_and_Kemp_-_Volume_1.djvu/444"
+     ],
+     "source_tier": "T2",
+     "excerpt": "Thus its life swings like a pendulum backwards and forwards between pain and ennui.",
+     "note": "《作为意志和表象的世界》第一卷(Haldane&Kemp英译)；原文是'痛苦与无聊(ennui)'，条文'欲望的痛苦与满足后的无聊'为合理解释。章节号(§57)未在本页核实。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "2.6",
+   "person": "萨特",
+   "entry_text": "萨特：\"他人即地狱\"——当人完全活在他人目光中，他人即成地狱；\"存在先于本质\"——人先存在，再通过选择定义自己。（用于凝视、主体性类话题，注意两句出处不同：前者出自戏剧《禁闭》，后者是存在主义命题，勿混为同一书）",
+   "claims_checked": [
+    {
+     "claim": "\"他人即地狱\"出自戏剧《禁闭》(Huis clos)",
+     "verdict": "verified",
+     "source_urls": [
+      "https://plato.stanford.edu/entries/existentialism/",
+      "https://en.wikiquote.org/wiki/Jean-Paul_Sartre"
+     ],
+     "source_tier": "T1",
+     "excerpt": "Sartre's famous claim in his play Huis Clos (No Exit) that 'Hell is— other people' (1944)",
+     "note": "法语 'l'enfer, c'est les autres'，Garcin台词(sc.5)。"
+    },
+    {
+     "claim": "\"存在先于本质\"是存在主义命题，出处不同",
+     "verdict": "verified",
+     "source_urls": [
+      "https://plato.stanford.edu/entries/existentialism/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "Existence Precedes Essence: Existentialists forward a novel conception of the self not as a substance or thing with some pre-given nature",
+     "note": "出自《存在主义是一种人道主义》(1946演讲)的说法未在本次来源直接逐字核实；SEP确认为命题。"
+    },
+    {
+     "claim": "括注对'他人即地狱'的解释(活在他人目光中)",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://plato.stanford.edu/entries/existentialism/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "",
+     "note": "SEP把该句与《存在与虚无》的他人凝视相联系；萨特后来亦澄清其含义，但本次未逐字核实澄清原文；宜表述为'在他人目光中被对象化时'。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "2.7",
+   "person": "加缪",
+   "entry_text": "加缪：西西弗斯推石上山，\"应当想象西西弗斯是幸福的\"。（用于直面无意义、过程价值类话题）",
+   "claims_checked": [
+    {
+     "claim": "\"One must imagine Sisyphus happy\"（《西西弗斯神话》）",
+     "verdict": "verified",
+     "source_urls": [
+      "https://people.brandeis.edu/~teuber/sisyphus10.html",
+      "https://plato.stanford.edu/entries/camus/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "The struggle itself toward the heights is enough to fill a man's heart. One must imagine Sisyphus happy.",
+     "note": "法语 Il faut imaginer Sisyphe heureux。中文引文'应当想象'为译法，非唯一。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "2.8",
+   "person": "维特根斯坦",
+   "entry_text": "维特根斯坦：\"我的语言的界限意味着我的世界的界限。\"（用于语言、解释、认知边界类话题；引时宜转述，原句译法多样）",
+   "claims_checked": [
+    {
+     "claim": "原句 Die Grenzen meiner Sprache bedeuten die Grenzen meiner Welt",
+     "verdict": "verified",
+     "source_urls": [
+      "https://www.wittgensteinproject.org/w/index.php/Logisch-philosophische_Abhandlung"
+     ],
+     "source_tier": "T2",
+     "excerpt": "5.6 Die Grenzen meiner Sprache bedeuten die Grenzen meiner Welt.",
+     "note": "《逻辑哲学论》命题5.6；条文未写出处，建议补。中文译法多样，故仅转述。"
+    }
+   ],
+   "overall": "keep_paraphrase_only",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "2.9",
+   "person": "加达默尔",
+   "entry_text": "加达默尔：《真理与方法》\"视域融合\"——理解不是抛弃己见进入对方，而是两个视域在对话中融合成新视域。（用于对话、理解差异、共情类话题）",
+   "claims_checked": [
+    {
+     "claim": "《真理与方法》(1960)中的'视域融合'(Horizontverschmelzung)",
+     "verdict": "verified",
+     "source_urls": [
+      "https://plato.stanford.edu/entries/gadamer/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "Gadamer thus takes understanding to be a process of the 'fusion of horizons' (Horizontverschmelzung)",
+     "note": "SEP另称其涉及形成新的意义语境，与条文说法一致。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "2.10",
+   "person": "鲁迅",
+   "entry_text": "鲁迅：\"惟沉默是最高的轻蔑\"（《半夏小集》，用于面对无意义消耗时的主动退场）；\"人类的悲欢并不相通，我只觉得他们吵闹\"（《小杂感》，用于共情之难——注意此句常被误用作冷漠的正当化，宜用于批判性语境）。",
+   "claims_checked": [
+    {
+     "claim": "\"惟沉默是最高的轻蔑\"出自《半夏小集》",
+     "verdict": "corrected",
+     "source_urls": [
+      "https://zh.wikisource.org/wiki/%E5%8D%8A%E5%A4%8F%E5%B0%8F%E9%9B%86",
+      "https://luxunlib.com/story/%e4%b8%94%e4%bb%8b%e4%ba%ad%e6%9d%82%e6%96%87%e6%9c%ab%e7%bc%96/%e5%8d%8a%e5%a4%8f%e5%b0%8f%e9%9b%86/"
+     ],
+     "source_tier": "T2",
+     "excerpt": "琪罗编辑圣·蒲孚的遗稿...“明言着轻蔑什么人，并不是十足的轻蔑。惟沉默是最高的轻蔑。——我在这里说，也是多余的。”...最高的轻蔑是无言，而且连眼珠也不转过去。",
+     "note": "该句是鲁迅从日译本转引圣·蒲孚(Sainte-Beuve)《我的毒》之语，非鲁迅自己的话；鲁迅本人的表述是'最高的轻蔑是无言，而且连眼珠也不转过去'（《且介亭杂文末编·半夏小集》八）。北京鲁迅博物馆系统未检索，用wikisource/luxunlib全文。"
+    },
+    {
+     "claim": "\"人类的悲欢并不相通，我只觉得他们吵闹\"出自《小杂感》",
+     "verdict": "verified",
+     "source_urls": [
+      "https://zh.wikisource.org/wiki/%E5%B0%8F%E9%9B%9C%E6%84%9F"
+     ],
+     "source_tier": "T2",
+     "excerpt": "楼下一个男人病得要死...人类的悲欢并不相通，我只觉得他们吵闹。",
+     "note": "《而已集·小杂感》，与条文一致；使用提示合理。"
+    }
+   ],
+   "overall": "fix",
+   "suggested_replacement_text": "鲁迅：\"最高的轻蔑是无言，而且连眼珠也不转过去\"（《半夏小集》；前一句\"惟沉默是最高的轻蔑\"系鲁迅转引圣·蒲孚之语，勿直接算作鲁迅本人所言，用于面对无意义消耗时的主动退场）；\"人类的悲欢并不相通，我只觉得他们吵闹\"（《小杂感》，用于共情之难——注意此句常被误用作冷漠的正当化，宜用于批判性语境）。"
+  },
+  {
+   "id": "3.1",
+   "person": "弗兰克尔",
+   "entry_text": "弗兰克尔《活出生命的意义》：人所拥有的最后一项自由，是在任何境遇中选择自己态度的自由。",
+   "claims_checked": [
+    {
+     "claim": "原句出自 Man's Search for Meaning（Frankl）",
+     "verdict": "verified",
+     "source_urls": [
+      "https://archive.org/stream/frankl-viktor-mans-search-for-meaning-1963/FRANKL_Viktor_Man%27s_Search_For_Meaning-1963_djvu.txt",
+      "https://en.wikiquote.org/wiki/Man%27s_Search_for_Meaning"
+     ],
+     "source_tier": "T2",
+     "excerpt": "everything can be taken from a man but one thing: the last of the human freedoms-to choose one's attitude in any given set of circumstances, to choose one's own way.",
+     "note": "archive.org 为1963年英译本全文扫描；Wikiquote 同。"
+    },
+    {
+     "claim": "中文书名《活出生命的意义》",
+     "verdict": "verified",
+     "source_urls": [
+      "https://www.hxph.com.cn/allBooks/3141.jhtml"
+     ],
+     "source_tier": "T1",
+     "excerpt": "活出生命的意义 … 作者：[美]维克多·弗兰克尔 译者：吕娜 出版时间：2010-06-01",
+     "note": "华夏出版社官网（吕娜译）；另有旧译《追寻生命的意义》。条目中文为意译、未加引号，可接受。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "3.2",
+   "person": "爱比克泰德/斯多葛学派",
+   "entry_text": "爱比克泰德/斯多葛学派：控制二分法——区分能控与不能控之事。",
+   "claims_checked": [
+    {
+     "claim": "《手册》(Enchiridion)第1章开篇区分'在我们能力之内/之外'之事",
+     "verdict": "verified",
+     "source_urls": [
+      "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0236%3Atext%3Denc%3Achapter%3D1"
+     ],
+     "source_tier": "T1",
+     "excerpt": "OF things some are in our power, and others are not.",
+     "note": "Perseus（塔夫茨大学）。"
+    },
+    {
+     "claim": "'控制二分法 / dichotomy of control' 作为名称",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://doi.org/10.1093/oso/9780195374612.003.0006",
+      "https://modernstoicism.com/cicero-vs-epictetus/"
+     ],
+     "source_tier": "T2",
+     "excerpt": "The Dichotomy of Control (chapter; Oxford UP 2008)",
+     "note": "该术语是现代学者(如Irvine)的概括，非古人原话；学界有人批评其过度简化。作文中宜说'爱比克泰德区分「在我们能力之内与之外的事」'。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "3.3",
+   "person": "费孝通",
+   "entry_text": "费孝通：\"各美其美，美人之美，美美与共，天下大同。\"",
+   "claims_checked": [
+    {
+     "claim": "四句原文措辞",
+     "verdict": "verified",
+     "source_urls": [
+      "http://iea.cssn.cn/xzzl/yjmb/hyly/201505/t20150529_3968360.shtml",
+      "https://epaper.gmw.cn/blqs/html/2017-05/01/nw.D110000blqs_20170501_3-10.htm?div=-1"
+     ],
+     "source_tier": "T2",
+     "excerpt": "各美其美，美人之美，美美与共，天下大同",
+     "note": "中国社科院网站及费孝通自述（光明网转载）一致。"
+    },
+    {
+     "claim": "出处：1990年12月东京、80岁生日研讨会演讲《人的研究在中国：个人的经历》首次提出",
+     "verdict": "verified",
+     "source_urls": [
+      "http://iea.cssn.cn/xzzl/yjmb/hyly/201505/t20150529_3968360.shtml"
+     ],
+     "source_tier": "T2",
+     "excerpt": "1990年12月…东亚社会研究国际研讨会…时值费老八十华诞…题目为“人的研究在中国：个人的经历”，首次提出",
+     "note": "北大校友网另称1993年9月费老写下此句（题字），属书写时间，不影响首次提出于1990年。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "3.4",
+   "person": "朱光潜",
+   "entry_text": "朱光潜：谈古松的三种态度——同一棵古松，木商见实用、植物学家见科学、画家见美感。（用于视角/价值多元）",
+   "claims_checked": [
+    {
+     "claim": "《谈美》中《我们对于一棵古松的三种态度》：木商/植物学家/画家，实用、科学、美感三态度",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://www.thepaper.cn/newsDetail_forward_22776797",
+      "https://doosho.com/cn/129/1",
+      "https://m.thepaper.cn/newsDetail_forward_3919778"
+     ],
+     "source_tier": "T2",
+     "excerpt": "假如你是一位木商，我是一位植物学家，另外一位朋友是画家，三人同时来看这棵古松…",
+     "note": "未取得T1(出版社/图书馆)页面，澎湃新闻+多个全文站内容一致；该篇为《谈美》首章，众所周知。'价值多元'为用法建议，朱氏原意是区分三种态度，非主张多元。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "3.5",
+   "person": "鲁迅",
+   "entry_text": "鲁迅：\"无穷的远方，无数的人们，都和我有关。\"（《这也是生活》）",
+   "claims_checked": [
+    {
+     "claim": "原文及篇名",
+     "verdict": "verified",
+     "source_urls": [
+      "https://zh.wikisource.org/wiki/%E3%80%8C%E8%BF%99%E4%B9%9F%E6%98%AF%E7%94%9F%E6%B4%BB%E3%80%8D%E2%80%A6%E2%80%A6",
+      "http://www.chinawriter.com.cn/n1/2021/0908/c440988-32221790.html",
+      "https://www.marxists.org/chinese/reference-books/luxun/21/015.htm"
+     ],
+     "source_tier": "T2",
+     "excerpt": "外面的进行着的夜，无穷的远方，无数的人们，都和我有关。我存在着，我在生活，我将生活下去",
+     "note": "篇名《“这也是生活”》，1936年9月5日首发于《中流》，收《且介亭杂文附集》。未能访问鲁迅博物馆检索系统，据维基文库/中国作家网/marxists.org全集文本。语境为病中夜里的感受，引用时宜注意语境。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "3.6",
+   "person": "孟子",
+   "entry_text": "孟子：恻隐之心，仁之端也。",
+   "claims_checked": [
+    {
+     "claim": "《孟子·公孙丑上》原文",
+     "verdict": "verified",
+     "source_urls": [
+      "https://ctext.org/mengzi/gong-sun-chou-i/zh?filter=612953"
+     ],
+     "source_tier": "T1",
+     "excerpt": "惻隱之心，仁之端也；羞惡之心，義之端也；辭讓之心，禮之端也；是非之心，智之端也。",
+     "note": "ctext.org；条目未标篇名，建议补注《公孙丑上》。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "3.7",
+   "person": "庄子",
+   "entry_text": "庄子：\"吾生也有涯，而知也无涯。\"；\"物物而不物于物\"（《庄子·山木》，用于役使外物而不被外物役使的主体性）。",
+   "claims_checked": [
+    {
+     "claim": "'吾生也有涯，而知也无涯'出自《养生主》",
+     "verdict": "verified",
+     "source_urls": [
+      "https://ctext.org/zhuangzi/nourishing-the-lord-of-life/zhs"
+     ],
+     "source_tier": "T1",
+     "excerpt": "吾生也有涯，而知也无涯。以有涯随无涯，殆已",
+     "note": "条目未标篇名，建议补《养生主》。注意原文后接'以有涯随无涯，殆已'，庄子本意偏消极(劝勿穷追知识)，作文中作'知识无限'论据时宜避免断章取义反用。"
+    },
+    {
+     "claim": "'物物而不物于物'出自《山木》",
+     "verdict": "verified",
+     "source_urls": [
+      "https://ctext.org/zhuangzi/tree-on-the-mountain/zh",
+      "https://zh.wikisource.org/zh-hans/%E8%8E%8A%E5%AD%90/%E5%B1%B1%E6%9C%A8"
+     ],
+     "source_tier": "T1",
+     "excerpt": "浮游乎万物之祖；物物而不物于物，则胡可得而累邪！",
+     "note": "原文'物物而不物于物，则胡可得而累邪'；解释'役使外物而不被外物役使'与通行注释一致(成玄英疏：物不相物，则无忧患)。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "3.8",
+   "person": "保罗·布鲁姆",
+   "entry_text": "保罗·布鲁姆《反对共情》：聚光灯效应——共情像聚光灯，只照亮近处可识别的个体，对远处的大多数是盲区。（用于共情的局限、\"可识别受害者效应\"）",
+   "claims_checked": [
+    {
+     "claim": "Against Empathy 中'共情是聚光灯'比喻及其局限",
+     "verdict": "verified",
+     "source_urls": [
+      "https://archive.org/stream/bloom-2016-against-empathy/Bloom%2C%202016%2C%20Against%20Empathy_djvu.txt",
+      "https://www.apa.org/monitor/2017/05/conversation-bloom"
+     ],
+     "source_tier": "T2",
+     "excerpt": "Empathy is a spotlight focusing on certain people in the here and now. This makes us care more about them, but it leaves us insensitive to the long-term consequences of our acts and blind as well to the suffering of those…",
+     "note": "archive.org为全书扫描文本；APA访谈亦称 'It's a spotlight'。"
+    },
+    {
+     "claim": "'聚光灯效应'作为术语 / '可识别受害者效应'",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://www.newyorker.com/magazine/2013/05/20/the-baby-in-the-well"
+     ],
+     "source_tier": "T2",
+     "excerpt": "Empathy is deaf to facts and figures; it’s engaged by the “identifiable victim effect.”",
+     "note": "Bloom 论述了识别受害者效应，但该效应非其首创(经济学/心理学早有研究)；'聚光灯效应'是比喻而非Bloom正式术语，且心理学另有同名'spotlight effect'(Gilovich)，易混淆，宜写'聚光灯比喻'。"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "4.1",
+   "person": "苏轼",
+   "entry_text": "**苏轼**（最高频万能例，注意剪裁角度避免陈词滥调）：乌台诗案后贬谪黄州，于人生低谷写出前后《赤壁赋》；\"一蓑烟雨任平生\"\"也无风雨也无晴\"的超然，是苦难中主体性的自我安顿。安全角度：价值被时间重新发现；逆境中的精神自由；不为外界评价所困。注意：《题西林壁》\"不识庐山真面目\"也是苏轼（勿安到他人头上）。",
+   "claims_checked": [
+    {
+     "claim": "乌台诗案(1079)后贬黄州",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Su_Shi",
+      "https://zh.wikipedia.org/wiki/前赤壁赋"
+     ],
+     "source_tier": "T2",
+     "excerpt": "元豐二年（1079年），蘇軾因「烏臺詩案」，被宋神宗貶謫到黄州",
+     "note": "enwiki: Crow Terrace Poetry Trial of 1079; first exile (1080–1086) to Huangzhou"
+    },
+    {
+     "claim": "前后《赤壁赋》作于黄州",
+     "verdict": "verified",
+     "source_urls": [
+      "https://zh.wikipedia.org/wiki/前赤壁赋"
+     ],
+     "source_tier": "T2",
+     "excerpt": "元豐五年（1082年），蘇軾先後兩次遊覽了黄州附近的赤壁，寫下兩篇赤壁赋",
+     "note": "赤壁为黄州赤鼻矶，非三国赤壁之战之地；可不展开"
+    },
+    {
+     "claim": "“一蓑烟雨任平生”“也无风雨也无晴”出自《定风波》",
+     "verdict": "verified",
+     "source_urls": [
+      "https://zh.wikisource.org/wiki/定風波·莫聽穿林打葉聲"
+     ],
+     "source_tier": "T2",
+     "excerpt": "竹杖芒鞵輕勝馬，誰怕？一蓑煙雨任平生。…回首向來蕭瑟處，歸去、也無風雨也無晴。",
+     "note": "序“三月七日，沙湖道中遇雨”，黄州时期；词中是“烟雨”，勿写成“风雨”"
+    },
+    {
+     "claim": "《题西林壁》“不识庐山真面目”为苏轼作",
+     "verdict": "verified",
+     "source_urls": [
+      "https://zh.wikisource.org/wiki/題西林壁"
+     ],
+     "source_tier": "T2",
+     "excerpt": "西林壁作者：蘇軾 …不識廬山真面目，祇緣身在此山中。",
+     "note": ""
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "4.2",
+   "person": "司马迁",
+   "entry_text": "**司马迁**：遭宫刑而著《史记》，\"究天人之际，通古今之变，成一家之言\"。角度：在屈辱中以立言重建生命意义；不为当世认可而为后世写作。",
+   "claims_checked": [
+    {
+     "claim": "司马迁因李陵之祸遭宫刑",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Sima_Qian"
+     ],
+     "source_tier": "T2",
+     "excerpt": "Given the choice of being executed or castrated, he chose the latter in order to finish his historical work.",
+     "note": "Britannica页面抓取失败，仅Wikipedia（T2）"
+    },
+    {
+     "claim": "“究天人之际，通古今之变，成一家之言”",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://zh.wikisource.org/wiki/報任安書"
+     ],
+     "source_tier": "T2",
+     "excerpt": "亦欲以究天人之際，通古今之變，成一家之言。草創未就，會遭此禍",
+     "note": "出自《报任安书》（亦见《汉书·司马迁传》）；引文正确，建议标注篇名"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "4.3",
+   "person": "曹雪芹",
+   "entry_text": "**曹雪芹**：《红楼梦》\"披阅十载，增删五次\"，生前寂寞身后名。角度：传世之作未经当时的\"流行\"检验；时间沉淀价值。",
+   "claims_checked": [
+    {
+     "claim": "“披阅十载，增删五次”见《红楼梦》第一回",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://zh.wikisource.org/zh-hans/紅樓夢/第001回"
+     ],
+     "source_tier": "T2",
+     "excerpt": "后因曹雪芹于悼红轩中披阅十载，增删五次，纂成目录，分出章回",
+     "note": "此句是书中楔子的叙述框架（半虚构笔法），版本有异文；可用作“作者自述创作之艰”，勿作严格传记证据"
+    },
+    {
+     "claim": "生前寂寞、晚年贫困",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Cao_Xueqin"
+     ],
+     "source_tier": "T2",
+     "excerpt": "Cao eventually settled in the countryside west of Beijing, where he lived the larger part of his later years in poverty selling off his paintings.",
+     "note": "“身后名”为合理概括"
+    },
+    {
+     "claim": "生卒年",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Cao_Xueqin",
+      "https://zh.wikipedia.org/wiki/曹雪芹"
+     ],
+     "source_tier": "T2",
+     "excerpt": "Cao died some time in 1763 or 1764",
+     "note": "卒年有壬午(1762)/癸未(1763)/甲申(1764)之争，生年亦有争议；作文勿写具体年份"
+    },
+    {
+     "claim": "“传世之作未经当时的流行检验”",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Cao_Xueqin"
+     ],
+     "source_tier": "T2",
+     "excerpt": "A small group of close family and friends appeared to have been transcribing his manuscript when Cao died quite suddenly in 1763–4",
+     "note": "书稿（前80回）主要在小圈子传抄，大规模流行与出版（程伟元、高鹗本，1791）均在其身后；该角度成立，但“当时全无反响”不宜说满（脂砚斋等有评点）"
+    }
+   ],
+   "overall": "keep_paraphrase_only",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "4.4",
+   "person": "梵高",
+   "entry_text": "**梵高**：生前只卖出寥寥画作，死后被奉为大师。角度：认可度滞后于价值；不以即时认可度定高下。",
+   "claims_checked": [
+    {
+     "claim": "生前仅卖出很少作品",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://www.vangoghmuseum.nl/en/art-and-stories/vincent-van-gogh-faq/how-many-paintings-did-vincent-sell-during-his-lifetime",
+      "https://news.artnet.com/art-world/story-only-known-painting-van-gogh-sold-2432275"
+     ],
+     "source_tier": "T1",
+     "excerpt": "We don’t know exactly how many paintings Van Gogh sold during this lifetime, but in any case, it was more than a couple.",
+     "note": "梵高博物馆：确切数量未知，但“不止几幅”（卖给唐吉老爹、提奥售伦敦画廊、《红色葡萄园》被Anna Boch购得）；“只卖出一幅”为流行说法且有争议(artnet: There’s some debate)。“寥寥”可用，勿写“仅一幅”"
+    },
+    {
+     "claim": "死后被奉为大师",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Vincent_van_Gogh"
+     ],
+     "source_tier": "T2",
+     "excerpt": "Van Gogh's fame reached its first peak in Austria and Germany before World War I",
+     "note": "身后声誉逐步确立（1914年书信集出版、1930s–50s《渴望生活》小说与电影进一步推高）"
+    }
+   ],
+   "overall": "fix",
+   "suggested_replacement_text": "梵高：生前作品销路极差、几乎不被主流认可（流传的“只卖出一幅”并不严谨，梵高博物馆称实际不止一幅），身后才被奉为大师。"
+  },
+  {
+   "id": "4.5",
+   "person": "屠呦呦",
+   "entry_text": "**屠呦呦**：从古籍《肘后备急方》获启发提取青蒿素，多年冷板凳后获诺奖。角度：专业深耕不逐热点；传统与现代的创造性转化。",
+   "claims_checked": [
+    {
+     "claim": "从葛洪《肘后备急方》获启发提取青蒿素",
+     "verdict": "verified",
+     "source_urls": [
+      "https://www.nobelprize.org/prizes/medicine/2015/tu/biographical/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "In Ge Hong’s A Handbook of Prescriptions for Emergencies (肘后备急方), I noticed one sentence “A handful of Qinghao immersed in two liters of water, wring out the juice and drink it all”",
+     "note": "屠呦呦自述：该句提示避免高温破坏有效成分，改用低温乙醚提取"
+    },
+    {
+     "claim": "2015年获诺贝尔生理学或医学奖",
+     "verdict": "verified",
+     "source_urls": [
+      "https://www.nobelprize.org/prizes/medicine/2015/tu/lecture/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "Youyou Tu delivered her Nobel Lecture on 7 December 2015 at Aula Medica, Karolinska Institutet",
+     "note": "与坎贝尔、大村智共享（她获奖一半）"
+    },
+    {
+     "claim": "“多年冷板凳”",
+     "verdict": "unverifiable",
+     "source_urls": [
+      "https://www.nobelprize.org/prizes/medicine/2015/tu/biographical/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "",
+     "note": "修辞概括，无直接来源；523任务1969年起，2015获奖。青蒿素研究是国家集体项目，勿写成“一人单干”"
+    }
+   ],
+   "overall": "keep_paraphrase_only",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "4.6",
+   "person": "史铁生",
+   "entry_text": "**史铁生**：地坛中思索生死，以写作对抗残缺。角度：向内探索同样是对世界的回应；苦难的转化。",
+   "claims_checked": [
+    {
+     "claim": "《我与地坛》写他在地坛的思索",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Shi_Tiesheng",
+      "https://www.ideobook.com/doc/earth-temple-and-me.pdf"
+     ],
+     "source_tier": "T2",
+     "excerpt": "I and the Temple of Earth (我与地坛, 1991), a landmark essay on life, death, and maternal love",
+     "note": "原文开篇：我在好几篇小说中都提到过一座废弃的古园，实际就是地坛。（全文转载站，T3，仅佐证）"
+    },
+    {
+     "claim": "双腿残疾后以写作面对",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Shi_Tiesheng"
+     ],
+     "source_tier": "T2",
+     "excerpt": "In 1972, at age 21, he became paralyzed in both legs due to a spinal condition",
+     "note": "后患尿毒症长期透析"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "4.7",
+   "person": "杜甫",
+   "entry_text": "**杜甫**：自身困顿仍写\"安得广厦千万间\"。角度：先经历生活重量而后有真悲悯；从一己之痛推及天下之痛。",
+   "claims_checked": [
+    {
+     "claim": "“安得广厦千万间”出《茅屋为秋风所破歌》",
+     "verdict": "verified",
+     "source_urls": [
+      "https://zh.wikisource.org/wiki/茅屋為秋風所破歌"
+     ],
+     "source_tier": "T2",
+     "excerpt": "安得廣廈千萬間，大庇天下寒士俱歡顏，風雨不動安如山！",
+     "note": "同诗写自家屋破、布衾冷似铁，印证“自身困顿”"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "4.8",
+   "person": "梭罗",
+   "entry_text": "**梭罗**：瓦尔登湖畔两年简朴生活，验证\"把生活逼到墙角\"的实验。角度：简化外物以澄明内心；主动选择而非被动逃避。（注意：梭罗后来离开了湖畔——可用于反驳\"避世\"的误读。）",
+   "claims_checked": [
+    {
+     "claim": "瓦尔登湖畔两年（1845–1847）",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Henry_David_Thoreau",
+      "https://www.smithsonianmag.com/smithsonian-institution/thoreau-leaves-walden-pond-69655863/"
+     ],
+     "source_tier": "T2",
+     "excerpt": "on July 4, 1845, Thoreau embarked on a two-year experiment … Thoreau left Walden Pond on September 6, 1847.",
+     "note": "准确为两年两个月又两天"
+    },
+    {
+     "claim": "“把生活逼到墙角”＝drive life into a corner",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Walden"
+     ],
+     "source_tier": "T2",
+     "excerpt": "to drive life into a corner, and reduce it to its lowest terms",
+     "note": "中文为译法；同段有“live deliberately”"
+    },
+    {
+     "claim": "后来离开湖畔",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/Henry_David_Thoreau"
+     ],
+     "source_tier": "T2",
+     "excerpt": "Thoreau left Walden Pond on September 6, 1847.",
+     "note": "离开后应爱默生之请回其家帮忙；小屋离镇不远——勿夸大“与世隔绝”（此点未单独取证，属常识性补充）"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "4.9",
+   "person": "反面例：项羽/阿Q",
+   "entry_text": "**反面例**：项羽（垓下之败犹言\"天亡我，非战之罪\"——拒绝归因于己）；阿Q（精神胜利法——以自欺代替直面）。反例宜点到即止，一两句即可。",
+   "claims_checked": [
+    {
+     "claim": "项羽“天亡我，非战之罪也”见《史记·项羽本纪》",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://zh.wikisource.org/wiki/史記/卷007"
+     ],
+     "source_tier": "T2",
+     "excerpt": "此天之亡我，非戰之罪也。…令諸君知天亡我，非戰之罪也。",
+     "note": "原文“此天之亡我，非战之罪也”；说于垓下突围、至东城之时，非垓下当场。建议“垓下兵败突围至东城仍言”"
+    },
+    {
+     "claim": "“拒绝归因于己”的解读",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://zh.wikisource.org/wiki/史記/卷007"
+     ],
+     "source_tier": "T2",
+     "excerpt": "",
+     "note": "评价性解读，非事实；点到即止可"
+    },
+    {
+     "claim": "阿Q精神胜利法",
+     "verdict": "verified",
+     "source_urls": [
+      "https://en.wikipedia.org/wiki/The_True_Story_of_Ah_Q"
+     ],
+     "source_tier": "T2",
+     "excerpt": "rationalizes every single actual failure he faces as a psychological triumph (\"spiritual victory\")",
+     "note": "出鲁迅《阿Q正传》"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "4.10",
+   "person": "苏轼",
+   "entry_text": "“不识庐山真面目，只缘身在此山中”（苏轼）",
+   "claims_checked": [
+    {
+     "claim": "出自苏轼《题西林壁》",
+     "verdict": "verified",
+     "source_urls": [
+      "https://zh.wikisource.org/wiki/題西林壁"
+     ],
+     "source_tier": "T2",
+     "excerpt": "不識廬山真面目，祇一作「只」緣身在此山中。",
+     "note": ""
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "4.11",
+   "person": "苏轼",
+   "entry_text": "“一蓑烟雨任平生”（苏轼）",
+   "claims_checked": [
+    {
+     "claim": "出自苏轼《定风波》",
+     "verdict": "verified",
+     "source_urls": [
+      "https://zh.wikisource.org/wiki/定風波·莫聽穿林打葉聲"
+     ],
+     "source_tier": "T2",
+     "excerpt": "竹杖芒鞵輕勝馬，誰怕？一蓑煙雨任平生。",
+     "note": ""
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "4.12",
+   "person": "《论语》",
+   "entry_text": "“知者不惑，仁者不忧，勇者不惧”（《论语》）",
+   "claims_checked": [
+    {
+     "claim": "语序“知者不惑，仁者不忧，勇者不惧”见《论语·子罕》9.29；《宪问》14.28语序为“仁者不忧，知者不惑，勇者不惧”",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://ctext.org/dictionary.pl?id=1337&if=en",
+      "https://confucius-analects.org/zh/books/09/29/",
+      "https://confucius-analects.org/zh/books/14/30/"
+     ],
+     "source_tier": "T1",
+     "excerpt": "子曰：「知者不惑，仁者不憂，勇者不懼。」（子罕）；君子道者三，我無能焉：仁者不憂，知者不惑，勇者不懼（憲問）",
+     "note": "ctext页面被防爬拦截，仅由检索摘要确认(T1)，全文用confucius-analects.org(T3)佐证；引用写《论语·子罕》，语序与此一致"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "4.13",
+   "person": "《论语》",
+   "entry_text": "“三人行，必有我师焉”（《论语》，用于开放心态）",
+   "claims_checked": [
+    {
+     "claim": "出《论语·述而》",
+     "verdict": "verified",
+     "source_urls": [
+      "https://zh.wikisource.org/zh-hans/論語/述而第七"
+     ],
+     "source_tier": "T2",
+     "excerpt": "子曰：“三人行，必有我师焉。择其善者而从之，其不善者而改之。”",
+     "note": "章序因本而异（朱熹本七之二一，ctext 7.22）"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "4.14",
+   "person": "《论语》",
+   "entry_text": "“从心所欲，不逾矩”（《论语》，用于自由与规范的统一）",
+   "claims_checked": [
+    {
+     "claim": "出《论语·为政》“七十而从心所欲，不逾矩”",
+     "verdict": "verified",
+     "source_urls": [
+      "https://zh.wikisource.org/zh-hans/論語/為政第二"
+     ],
+     "source_tier": "T2",
+     "excerpt": "七十而从心所欲，不逾矩。",
+     "note": "有网页误作“从心随欲”，勿用；宜保留“七十”语境"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "4.15",
+   "person": "《大学》",
+   "entry_text": "“静而后能安，安而后能虑”（《大学》，用于沉潜与专注）",
+   "claims_checked": [
+    {
+     "claim": "出《大学》（《礼记》一篇）",
+     "verdict": "verified",
+     "source_urls": [
+      "https://zh.wikisource.org/wiki/禮記/大學"
+     ],
+     "source_tier": "T2",
+     "excerpt": "知止而後有定，定而後能静，静而後能安，安而後能慮，慮而後能得。",
+     "note": "原文链条为知止→定→静→安→虑→得"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "4.16",
+   "person": "屈原",
+   "entry_text": "“路漫漫其修远兮，吾将上下而求索”（屈原，用于探索——慎用，偏俗）",
+   "claims_checked": [
+    {
+     "claim": "出屈原《离骚》",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://zh.wikisource.org/wiki/離騷"
+     ],
+     "source_tier": "T2",
+     "excerpt": "吾令羲和弭節兮，望崦嵫而勿迫。路曼曼其脩遠兮，吾將上下而求索。",
+     "note": "维基文库底本作“曼曼”“脩遠”，通行本“漫漫”“修远”，属异文，作文用通行写法"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  },
+  {
+   "id": "4.17",
+   "person": "时代语料",
+   "entry_text": "算法推荐与信息茧房；短视频的即时反馈与深度阅读的式微；热搜的速朽（昨日刷屏今日无人问津）；点赞数、评分、销量榜作为\"认可度\"的数字化身；\"网红打卡\"对旅行体验的置换；AI生成内容对\"原创\"\"想象力\"的挑战；博物馆文创与传统文化破圈（《只此青绿》、故宫文创）；\"数字极简\"与戒断实验。使用规则：时代语料放在引论切入或归因段，一笔带过营造在场感，不展开叙述。",
+   "claims_checked": [
+    {
+     "claim": "“信息茧房”概念",
+     "verdict": "verified",
+     "source_urls": [
+      "http://www.news.cn/tech/20240131/e86c6d2a3e7b4f35ad8912859f52b03b/c.html",
+      "https://ici.sjtu.edu.cn/upload/202405/15/202405151424310435.pdf"
+     ],
+     "source_tier": "T1",
+     "excerpt": "2006年，美国法学家桑斯坦用“信息茧房”一词描述“这样一种交流环境：只包含我们选择的、让我们感到舒适和愉悦的信息”",
+     "note": "源自《信息乌托邦》(2006)；该文指出它是假说而非实证结论——作文用作现象描述，勿说“已被证实”"
+    },
+    {
+     "claim": "《只此青绿》取材《千里江山图》",
+     "verdict": "verified_with_caveat",
+     "source_urls": [
+      "https://www.mct.gov.cn/whzx/zsdw/zgdfyyjtyxgs/202202/t20220210_930926.html",
+      "https://news.cctv.com/2022/02/01/ARTIzH9EJwbwWGTguX0efMqw220201.shtml"
+     ],
+     "source_tier": "T1",
+     "excerpt": "舞蹈诗剧《只此青绿》是由故宫博物院、中国东方演艺集团有限公司、人民网股份有限公司共同出品",
+     "note": "官方称“舞蹈诗剧”（非一般“舞剧”）；2021年成爆款，2022年春晚亮相选段；与故宫博物院联合出品"
+    },
+    {
+     "claim": "故宫文创“破圈”",
+     "verdict": "verified",
+     "source_urls": [
+      "https://www.xinhuanet.com/politics/2019-02/20/c_1124140328.htm",
+      "http://www.news.cn/ci/20250626/da28d53c5b914d0281fbc2d7cebaf3b7/c.html"
+     ],
+     "source_tier": "T1",
+     "excerpt": "2017年故宫文创年营业额达到15亿元，超过了1500多家A股上市公司的营收水平。",
+     "note": "新华网转述单霁翔所言；作文勿引具体营收数字"
+    },
+    {
+     "claim": "热搜速朽、点赞/榜单作为认可度、网红打卡、AI生成内容挑战原创、数字极简",
+     "verdict": "unverifiable",
+     "source_urls": [],
+     "source_tier": "T3",
+     "excerpt": "",
+     "note": "社会现象概括，非具体可核事实；未取证。只作一笔带过，勿加具体数字/案例"
+    }
+   ],
+   "overall": "keep",
+   "suggested_replacement_text": ""
+  }
+ ],
+ "machine_recheck": [
+  {
+   "id": "1.1",
+   "person": "苏格拉底",
+   "status": "hit",
+   "claim": "\"认识你自己\"是苏格拉底的话",
+   "url": "https://en.wikipedia.org/wiki/Know_thyself"
+  },
+  {
+   "id": "1.1",
+   "person": "苏格拉底",
+   "status": "hit",
+   "claim": "\"我唯一知道的是我一无所知\"为苏格拉底原话",
+   "url": "https://en.wikipedia.org/wiki/I_know_that_I_know_nothing"
+  },
+  {
+   "id": "1.2",
+   "person": "康德",
+   "status": "hit",
+   "claim": "人是目的、不只是手段（人性公式）",
+   "url": "https://plato.stanford.edu/entries/kant-moral/"
+  },
+  {
+   "id": "1.2",
+   "person": "康德",
+   "status": "hit",
+   "claim": "启蒙即敢于运用自己的理智（《回答问题：何谓启蒙？》）",
+   "url": "https://plato.stanford.edu/entries/kant-social-political/"
+  },
+  {
+   "id": "1.3",
+   "person": "尼采",
+   "status": "hit",
+   "claim": "人是系于动物与超人之间的绳索，出自《查拉图斯特拉如是说》",
+   "url": "https://www.gutenberg.org/cache/epub/1998/pg1998-images.html"
+  },
+  {
+   "id": "1.3",
+   "person": "尼采",
+   "status": "hit",
+   "claim": "\"在自己身上克服这个时代\"",
+   "url": "http://www.thenietzschechannel.com/works-pub/cw/cwp-dual.htm"
+  },
+  {
+   "id": "1.4",
+   "person": "王阳明",
+   "status": "hit",
+   "claim": "知行合一",
+   "url": "https://plato.stanford.edu/entries/wang-yangming/"
+  },
+  {
+   "id": "1.4",
+   "person": "王阳明",
+   "status": "hit",
+   "claim": "心外无物（心即理，心外无理无事）",
+   "url": "https://plato.stanford.edu/entries/wang-yangming/"
+  },
+  {
+   "id": "1.5",
+   "person": "李普曼",
+   "status": "hit",
+   "claim": "《Public Opinion》(1922)；pseudo-environmen",
+   "url": "https://en.wikipedia.org/wiki/Public_Opinion_(book)"
+  },
+  {
+   "id": "1.6",
+   "person": "鲍德里亚",
+   "status": "hit",
+   "claim": "sign value概念及消费社会论",
+   "url": "https://en.wikipedia.org/wiki/Jean_Baudrillard"
+  },
+  {
+   "id": "1.7",
+   "person": "项飙",
+   "status": "miss",
+   "claim": "项飙提出'悬浮'并用蜂鸟比喻",
+   "url": "https://www.jiemian.com/article/215429.html"
+  },
+  {
+   "id": "1.8",
+   "person": "马斯洛",
+   "status": "hit",
+   "claim": "需求层次理论（1943）",
+   "url": "https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs"
+  },
+  {
+   "id": "1.8",
+   "person": "马斯洛",
+   "status": "unfetchable",
+   "claim": "匮乏性需求(D-needs)与成长性需求(B-needs)之分",
+   "url": "https://doi.org/10.1037/10793-000"
+  },
+  {
+   "id": "1.9",
+   "person": "费斯汀格",
+   "status": "hit",
+   "claim": "社会比较理论由费斯汀格1954年提出，基本命题",
+   "url": "https://en.wikipedia.org/wiki/Social_comparison_theory"
+  },
+  {
+   "id": "1.10",
+   "person": "韩炳哲",
+   "status": "hit",
+   "claim": "《倦怠社会》(Müdigkeitsgesellschaft)作者及主旨",
+   "url": "https://en.wikipedia.org/wiki/Byung-Chul_Han"
+  },
+  {
+   "id": "1.11",
+   "person": "马克斯·韦伯",
+   "status": "hit",
+   "claim": "工具理性(Zweckrationalität)与铁笼概念出自韦伯",
+   "url": "https://en.wikipedia.org/wiki/Iron_cage"
+  },
+  {
+   "id": "1.12",
+   "person": "齐格蒙特·鲍曼",
+   "status": "hit",
+   "claim": "'液态现代性'概念属鲍曼",
+   "url": "https://en.wikipedia.org/wiki/Liquid_modernity"
+  },
+  {
+   "id": "1.13",
+   "person": "哈特穆特·罗萨",
+   "status": "miss",
+   "claim": "中文书名及原著",
+   "url": "https://book.douban.com/subject/26681330/"
+  },
+  {
+   "id": "1.14",
+   "person": "沃尔特·本雅明",
+   "status": "hit",
+   "claim": "《机械复制时代的艺术作品》提出aura随机械复制消散",
+   "url": "https://en.wikipedia.org/wiki/The_Work_of_Art_in_the_Age_of_Mechanical"
+  },
+  {
+   "id": "1.15",
+   "person": "古斯塔夫·勒庞",
+   "status": "hit",
+   "claim": "《乌合之众》(Psychologie des foules, 1895)及基本观",
+   "url": "https://en.wikipedia.org/wiki/The_Crowd:_A_Study_of_the_Popular_Mind"
+  },
+  {
+   "id": "1.16",
+   "person": "丹尼尔·卡尼曼",
+   "status": "hit",
+   "claim": "峰终定律(peak–end rule)属卡尼曼",
+   "url": "https://en.wikipedia.org/wiki/Peak-end_rule"
+  },
+  {
+   "id": "2.1",
+   "person": "密尔",
+   "status": "hit",
+   "claim": "《论自由》谈\"多数人的暴政\"",
+   "url": "https://www.gutenberg.org/cache/epub/34901/pg34901.txt"
+  },
+  {
+   "id": "2.1",
+   "person": "密尔",
+   "status": "miss",
+   "claim": "即使全人类只有一人持异见，压制它也是掠夺",
+   "url": "https://www.gutenberg.org/cache/epub/34901/pg34901.txt"
+  },
+  {
+   "id": "2.2",
+   "person": "波普尔",
+   "status": "hit",
+   "claim": "可证伪性是科学与非科学的分界（划界标准）",
+   "url": "https://plato.stanford.edu/entries/popper/"
+  },
+  {
+   "id": "2.2",
+   "person": "波普尔",
+   "status": "hit",
+   "claim": "真理在猜想与反驳中生长",
+   "url": "https://plato.stanford.edu/entries/popper/"
+  },
+  {
+   "id": "2.3",
+   "person": "托马斯·库恩",
+   "status": "hit",
+   "claim": "《科学革命的结构》(1962)提出范式更替、危机后革命",
+   "url": "https://plato.stanford.edu/entries/thomas-kuhn/"
+  },
+  {
+   "id": "2.4",
+   "person": "海德格尔",
+   "status": "hit",
+   "claim": "技术的\"座架\"(Gestell)",
+   "url": "https://plato.stanford.edu/entries/heidegger/"
+  },
+  {
+   "id": "2.4",
+   "person": "海德格尔",
+   "status": "hit",
+   "claim": "把一切逼促为（可计算的）资源",
+   "url": "https://plato.stanford.edu/entries/heidegger/"
+  },
+  {
+   "id": "2.4",
+   "person": "海德格尔",
+   "status": "hit",
+   "claim": "沉沦(Verfallen)于常人(das Man)中失去本真",
+   "url": "https://plato.stanford.edu/entries/heidegger/"
+  },
+  {
+   "id": "2.5",
+   "person": "叔本华",
+   "status": "hit",
+   "claim": "人生如钟摆摇摆于痛苦与无聊之间",
+   "url": "https://en.wikisource.org/wiki/Page:The_World_as_Will_and_Idea_-_Schop"
+  },
+  {
+   "id": "2.6",
+   "person": "萨特",
+   "status": "hit",
+   "claim": "\"他人即地狱\"出自戏剧《禁闭》(Huis clos)",
+   "url": "https://plato.stanford.edu/entries/existentialism/"
+  },
+  {
+   "id": "2.6",
+   "person": "萨特",
+   "status": "hit",
+   "claim": "\"存在先于本质\"是存在主义命题，出处不同",
+   "url": "https://plato.stanford.edu/entries/existentialism/"
+  },
+  {
+   "id": "2.7",
+   "person": "加缪",
+   "status": "hit",
+   "claim": "\"One must imagine Sisyphus happy\"（《西西弗斯神",
+   "url": "https://people.brandeis.edu/~teuber/sisyphus10.html"
+  },
+  {
+   "id": "2.8",
+   "person": "维特根斯坦",
+   "status": "hit",
+   "claim": "原句 Die Grenzen meiner Sprache bedeuten d",
+   "url": "https://www.wittgensteinproject.org/w/index.php/Logisch-philosophische"
+  },
+  {
+   "id": "2.9",
+   "person": "加达默尔",
+   "status": "hit",
+   "claim": "《真理与方法》(1960)中的'视域融合'(Horizontverschmelz",
+   "url": "https://plato.stanford.edu/entries/gadamer/"
+  },
+  {
+   "id": "2.10",
+   "person": "鲁迅",
+   "status": "miss",
+   "claim": "\"惟沉默是最高的轻蔑\"出自《半夏小集》",
+   "url": "https://zh.wikisource.org/wiki/%E5%8D%8A%E5%A4%8F%E5%B0%8F%E9%9B%86"
+  },
+  {
+   "id": "2.10",
+   "person": "鲁迅",
+   "status": "miss",
+   "claim": "\"人类的悲欢并不相通，我只觉得他们吵闹\"出自《小杂感》",
+   "url": "https://zh.wikisource.org/wiki/%E5%B0%8F%E9%9B%9C%E6%84%9F"
+  },
+  {
+   "id": "3.1",
+   "person": "弗兰克尔",
+   "status": "hit",
+   "claim": "原句出自 Man's Search for Meaning（Frankl）",
+   "url": "https://archive.org/stream/frankl-viktor-mans-search-for-meaning-1963/"
+  },
+  {
+   "id": "3.1",
+   "person": "弗兰克尔",
+   "status": "miss",
+   "claim": "中文书名《活出生命的意义》",
+   "url": "https://www.hxph.com.cn/allBooks/3141.jhtml"
+  },
+  {
+   "id": "3.2",
+   "person": "爱比克泰德/斯多葛学派",
+   "status": "hit",
+   "claim": "《手册》(Enchiridion)第1章开篇区分'在我们能力之内/之外'之事",
+   "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01"
+  },
+  {
+   "id": "3.2",
+   "person": "爱比克泰德/斯多葛学派",
+   "status": "unfetchable",
+   "claim": "'控制二分法 / dichotomy of control' 作为名称",
+   "url": "https://doi.org/10.1093/oso/9780195374612.003.0006"
+  },
+  {
+   "id": "3.3",
+   "person": "费孝通",
+   "status": "hit",
+   "claim": "四句原文措辞",
+   "url": "http://iea.cssn.cn/xzzl/yjmb/hyly/201505/t20150529_3968360.shtml"
+  },
+  {
+   "id": "3.3",
+   "person": "费孝通",
+   "status": "miss",
+   "claim": "出处：1990年12月东京、80岁生日研讨会演讲《人的研究在中国：个人的经历》首",
+   "url": "http://iea.cssn.cn/xzzl/yjmb/hyly/201505/t20150529_3968360.shtml"
+  },
+  {
+   "id": "3.4",
+   "person": "朱光潜",
+   "status": "miss",
+   "claim": "《谈美》中《我们对于一棵古松的三种态度》：木商/植物学家/画家，实用、科学、美感",
+   "url": "https://www.thepaper.cn/newsDetail_forward_22776797"
+  },
+  {
+   "id": "3.5",
+   "person": "鲁迅",
+   "status": "hit",
+   "claim": "原文及篇名",
+   "url": "https://zh.wikisource.org/wiki/%E3%80%8C%E8%BF%99%E4%B9%9F%E6%98%AF%E7"
+  },
+  {
+   "id": "3.6",
+   "person": "孟子",
+   "status": "miss",
+   "claim": "《孟子·公孙丑上》原文",
+   "url": "https://ctext.org/mengzi/gong-sun-chou-i/zh?filter=612953"
+  },
+  {
+   "id": "3.7",
+   "person": "庄子",
+   "status": "miss",
+   "claim": "'吾生也有涯，而知也无涯'出自《养生主》",
+   "url": "https://ctext.org/zhuangzi/nourishing-the-lord-of-life/zhs"
+  },
+  {
+   "id": "3.7",
+   "person": "庄子",
+   "status": "hit",
+   "claim": "'物物而不物于物'出自《山木》",
+   "url": "https://ctext.org/zhuangzi/tree-on-the-mountain/zh"
+  },
+  {
+   "id": "3.8",
+   "person": "保罗·布鲁姆",
+   "status": "hit",
+   "claim": "Against Empathy 中'共情是聚光灯'比喻及其局限",
+   "url": "https://archive.org/stream/bloom-2016-against-empathy/Bloom%2C%202016%"
+  },
+  {
+   "id": "3.8",
+   "person": "保罗·布鲁姆",
+   "status": "hit",
+   "claim": "'聚光灯效应'作为术语 / '可识别受害者效应'",
+   "url": "https://www.newyorker.com/magazine/2013/05/20/the-baby-in-the-well"
+  },
+  {
+   "id": "4.1",
+   "person": "苏轼",
+   "status": "miss",
+   "claim": "乌台诗案(1079)后贬黄州",
+   "url": "https://en.wikipedia.org/wiki/Su_Shi"
+  },
+  {
+   "id": "4.1",
+   "person": "苏轼",
+   "status": "unfetchable",
+   "claim": "前后《赤壁赋》作于黄州",
+   "url": "https://zh.wikipedia.org/wiki/前赤壁赋"
+  },
+  {
+   "id": "4.1",
+   "person": "苏轼",
+   "status": "unfetchable",
+   "claim": "“一蓑烟雨任平生”“也无风雨也无晴”出自《定风波》",
+   "url": "https://zh.wikisource.org/wiki/定風波·莫聽穿林打葉聲"
+  },
+  {
+   "id": "4.1",
+   "person": "苏轼",
+   "status": "unfetchable",
+   "claim": "《题西林壁》“不识庐山真面目”为苏轼作",
+   "url": "https://zh.wikisource.org/wiki/題西林壁"
+  },
+  {
+   "id": "4.2",
+   "person": "司马迁",
+   "status": "hit",
+   "claim": "司马迁因李陵之祸遭宫刑",
+   "url": "https://en.wikipedia.org/wiki/Sima_Qian"
+  },
+  {
+   "id": "4.2",
+   "person": "司马迁",
+   "status": "unfetchable",
+   "claim": "“究天人之际，通古今之变，成一家之言”",
+   "url": "https://zh.wikisource.org/wiki/報任安書"
+  },
+  {
+   "id": "4.3",
+   "person": "曹雪芹",
+   "status": "unfetchable",
+   "claim": "“披阅十载，增删五次”见《红楼梦》第一回",
+   "url": "https://zh.wikisource.org/zh-hans/紅樓夢/第001回"
+  },
+  {
+   "id": "4.3",
+   "person": "曹雪芹",
+   "status": "hit",
+   "claim": "生前寂寞、晚年贫困",
+   "url": "https://en.wikipedia.org/wiki/Cao_Xueqin"
+  },
+  {
+   "id": "4.3",
+   "person": "曹雪芹",
+   "status": "hit",
+   "claim": "生卒年",
+   "url": "https://en.wikipedia.org/wiki/Cao_Xueqin"
+  },
+  {
+   "id": "4.3",
+   "person": "曹雪芹",
+   "status": "hit",
+   "claim": "“传世之作未经当时的流行检验”",
+   "url": "https://en.wikipedia.org/wiki/Cao_Xueqin"
+  },
+  {
+   "id": "4.4",
+   "person": "梵高",
+   "status": "hit",
+   "claim": "生前仅卖出很少作品",
+   "url": "https://www.vangoghmuseum.nl/en/art-and-stories/vincent-van-gogh-faq/h"
+  },
+  {
+   "id": "4.4",
+   "person": "梵高",
+   "status": "hit",
+   "claim": "死后被奉为大师",
+   "url": "https://en.wikipedia.org/wiki/Vincent_van_Gogh"
+  },
+  {
+   "id": "4.5",
+   "person": "屠呦呦",
+   "status": "hit",
+   "claim": "从葛洪《肘后备急方》获启发提取青蒿素",
+   "url": "https://www.nobelprize.org/prizes/medicine/2015/tu/biographical/"
+  },
+  {
+   "id": "4.5",
+   "person": "屠呦呦",
+   "status": "hit",
+   "claim": "2015年获诺贝尔生理学或医学奖",
+   "url": "https://www.nobelprize.org/prizes/medicine/2015/tu/lecture/"
+  },
+  {
+   "id": "4.6",
+   "person": "史铁生",
+   "status": "hit",
+   "claim": "《我与地坛》写他在地坛的思索",
+   "url": "https://en.wikipedia.org/wiki/Shi_Tiesheng"
+  },
+  {
+   "id": "4.6",
+   "person": "史铁生",
+   "status": "hit",
+   "claim": "双腿残疾后以写作面对",
+   "url": "https://en.wikipedia.org/wiki/Shi_Tiesheng"
+  },
+  {
+   "id": "4.7",
+   "person": "杜甫",
+   "status": "unfetchable",
+   "claim": "“安得广厦千万间”出《茅屋为秋风所破歌》",
+   "url": "https://zh.wikisource.org/wiki/茅屋為秋風所破歌"
+  },
+  {
+   "id": "4.8",
+   "person": "梭罗",
+   "status": "hit",
+   "claim": "瓦尔登湖畔两年（1845–1847）",
+   "url": "https://en.wikipedia.org/wiki/Henry_David_Thoreau"
+  },
+  {
+   "id": "4.8",
+   "person": "梭罗",
+   "status": "hit",
+   "claim": "“把生活逼到墙角”＝drive life into a corner",
+   "url": "https://en.wikipedia.org/wiki/Walden"
+  },
+  {
+   "id": "4.8",
+   "person": "梭罗",
+   "status": "hit",
+   "claim": "后来离开湖畔",
+   "url": "https://en.wikipedia.org/wiki/Henry_David_Thoreau"
+  },
+  {
+   "id": "4.9",
+   "person": "反面例：项羽/阿Q",
+   "status": "unfetchable",
+   "claim": "项羽“天亡我，非战之罪也”见《史记·项羽本纪》",
+   "url": "https://zh.wikisource.org/wiki/史記/卷007"
+  },
+  {
+   "id": "4.9",
+   "person": "反面例：项羽/阿Q",
+   "status": "hit",
+   "claim": "阿Q精神胜利法",
+   "url": "https://en.wikipedia.org/wiki/The_True_Story_of_Ah_Q"
+  },
+  {
+   "id": "4.10",
+   "person": "苏轼",
+   "status": "unfetchable",
+   "claim": "出自苏轼《题西林壁》",
+   "url": "https://zh.wikisource.org/wiki/題西林壁"
+  },
+  {
+   "id": "4.11",
+   "person": "苏轼",
+   "status": "unfetchable",
+   "claim": "出自苏轼《定风波》",
+   "url": "https://zh.wikisource.org/wiki/定風波·莫聽穿林打葉聲"
+  },
+  {
+   "id": "4.12",
+   "person": "《论语》",
+   "status": "miss",
+   "claim": "语序“知者不惑，仁者不忧，勇者不惧”见《论语·子罕》9.29；《宪问》14.28",
+   "url": "https://ctext.org/dictionary.pl?id=1337&if=en"
+  },
+  {
+   "id": "4.13",
+   "person": "《论语》",
+   "status": "unfetchable",
+   "claim": "出《论语·述而》",
+   "url": "https://zh.wikisource.org/zh-hans/論語/述而第七"
+  },
+  {
+   "id": "4.14",
+   "person": "《论语》",
+   "status": "unfetchable",
+   "claim": "出《论语·为政》“七十而从心所欲，不逾矩”",
+   "url": "https://zh.wikisource.org/zh-hans/論語/為政第二"
+  },
+  {
+   "id": "4.15",
+   "person": "《大学》",
+   "status": "unfetchable",
+   "claim": "出《大学》（《礼记》一篇）",
+   "url": "https://zh.wikisource.org/wiki/禮記/大學"
+  },
+  {
+   "id": "4.16",
+   "person": "屈原",
+   "status": "unfetchable",
+   "claim": "出屈原《离骚》",
+   "url": "https://zh.wikisource.org/wiki/離騷"
+  },
+  {
+   "id": "4.17",
+   "person": "时代语料",
+   "status": "hit",
+   "claim": "“信息茧房”概念",
+   "url": "http://www.news.cn/tech/20240131/e86c6d2a3e7b4f35ad8912859f52b03b/c.ht"
+  },
+  {
+   "id": "4.17",
+   "person": "时代语料",
+   "status": "hit",
+   "claim": "《只此青绿》取材《千里江山图》",
+   "url": "https://www.mct.gov.cn/whzx/zsdw/zgdfyyjtyxgs/202202/t20220210_930926."
+  },
+  {
+   "id": "4.17",
+   "person": "时代语料",
+   "status": "hit",
+   "claim": "故宫文创“破圈”",
+   "url": "https://www.xinhuanet.com/politics/2019-02/20/c_1124140328.htm"
+  }
+ ]
+}
