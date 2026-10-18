@@ -140,6 +140,15 @@ class WriteChecks(unittest.TestCase):
         r = ce.analyze(text, self.rules, mode="write")
         self.assertGreaterEqual(r["metrics"]["parallelism_runs"], 1)
 
+    def test_connector_openers_soft(self):
+        paras = [para(120), "诚然，" + para(150), "可是，" + para(170), "更值得警惕的是，" + para(170), "由此看来，" + para(170), para(130)]
+        text = "标题\n" + "\n".join(paras) + "\n"
+        r = ce.analyze(text, self.rules, mode="write")
+        self.assertIn("connector_openers", ids(r, "soft"))
+        self.assertEqual(r["metrics"]["connector_openers"], 4)
+        r2 = ce.analyze(make_essay(), self.rules, mode="write")
+        self.assertNotIn("connector_openers", ids(r2))
+
     def test_keywords_counted(self):
         text = make_essay(extra="认可度认可度")
         r = ce.analyze(text, self.rules, mode="write", keywords=["认可度", "价值度"])

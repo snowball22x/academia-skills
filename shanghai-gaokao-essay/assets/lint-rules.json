@@ -18,6 +18,7 @@
     "exclamation_total": 1,
     "dash_total": 2,
     "parallelism_runs": 2,
+    "connector_openers": 3,
     "min_sentence_len_stdev": 6.0
   },
   "banned_terms": [
@@ -27,6 +28,7 @@
   "banned_title_terms": [
     "破茧成蝶", "扬帆起航", "砥砺前行", "不忘初心", "乘风破浪"
   ],
+  "connector_opener_terms": ["诚然", "可是", "然而", "但是", "于是", "由此看来", "由此观之", "归根结底", "更值得警惕的是", "更需警惕", "说到底", "总之", "此外", "同时", "与此同时"],
   "mechanical_order_terms": ["首先", "其次", "再次", "最后"],
   "however_terms": ["然而", "但是"],
   "signature_phrases": {
@@ -34,6 +36,7 @@
     "更值得警惕的是": 1,
     "诚然": 1,
     "归根结底": 1,
+    "由此看来": 1,
     "由此观之": 1,
     "渡口": 1,
     "不是": 6,

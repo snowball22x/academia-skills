@@ -204,6 +204,12 @@ def analyze(text: str, rules: dict, mode: str = "write", keywords=None, title: s
         if n > mx:
             _find(findings, "signature_phrase", "soft", f"口头禅“{phrase}”×{n}，上限{mx}；换说法或删")
 
+    # --- paragraph openers that are connectors (assembly-line skeleton)
+    openers = sum(1 for p in body if p.startswith(tuple(rules["connector_opener_terms"])))
+    if openers > lim["connector_openers"]:
+        _find(findings, "connector_openers", "soft",
+              f"{openers}个段落以连接词开头，建议≤{lim['connector_openers']}；其余段落直接以论点句/场景句/设问开头")
+
     # --- parallelism & rhythm
     runs = parallelism_runs(body)
     if runs > lim["parallelism_runs"]:
@@ -237,6 +243,7 @@ def analyze(text: str, rules: dict, mode: str = "write", keywords=None, title: s
             "dashes": dashes,
             "signature": sig_counts,
             "parallelism_runs": runs,
+            "connector_openers": openers,
             "sentence_len_mean": round(statistics.mean(sl), 1) if sl else 0,
             "sentence_len_stdev": round(stdev, 1),
             "keywords": kw_report,

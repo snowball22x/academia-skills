@@ -15,10 +15,11 @@ description: Use whenever the user provides a Shanghai gaokao (上海高考) ess
 ## 执行流程（新写流程，严格按顺序，不可跳步）
 
 ```
-Step 0 能力判断  → 若具备网络搜索能力，读 references/search-enhancement.md，按其时机表在后续各步嵌入搜索动作
+Step 0 能力判断  → 探测两项能力：①网络搜索（有则读 references/search-enhancement.md，按其时机表嵌入搜索动作）；②代码执行（有则可运行 scripts/check_essay.py，无则按文档里的人工清单自查）
 Step 1 审题拆解  → 读 references/prompt-analysis.md，完成审题清单（陌生概念/真题：先搜索校准）
 Step 2 立意与提纲 → 读 references/structure-and-outline.md，产出提纲（按素材缺口定向搜索，最多补2例）
 Step 3 成文     → 读 references/language-and-style.md + references/evidence-bank.md，写全文（库外引用必须搜索核验）
+Step 3.5 去模板 → 读 references/de-template.md；有代码执行则 python scripts/check_essay.py write essay.md，只改被标出的句子和段首，最多2轮
 Step 4 自查修改  → 用本文件末尾的《交稿前自查清单》逐项核对，并按《分档自评表》打分；若某维度≤2分，回退到对应Step重做（而非在原文上小修），修改后交付
 ```
 
@@ -49,7 +50,7 @@ Step 4 自查修改  → 用本文件末尾的《交稿前自查清单》逐项�
 | 6 | 案例堆砌、例证裸奔 | 每段最多1-2个例子，**例后必须有≥2句阐释**将例子绑定回论点；排例（三个以上连用）全文至多一处 |
 | 7 | 引用幻觉、张冠李戴 | 只使用 references/evidence-bank.md 中已验证的引证；不确定出处的名言一律改为转述或删除 |
 | 8 | 只正面阐释、缺深掘 | 必须包含"为什么"层（归因）和"边界"层（该观点被推向极端后的异化），单向度赞美/批判直接掉到二类中 |
-| 9 | 衔接词滥用、机械转折 | "然而""但是"每篇≤3次；改用让步式过渡（"诚然……但这并不意味着……"）和设问式过渡 |
+| 9 | 衔接词滥用、机械转折 | "然而""但是"每篇≤3次；改用让步式过渡（承认对方合理处，再划出其边界）和设问式过渡；具体措辞每篇换，见 references/de-template.md |
 
 ## 核心写作范式（速览）
 
@@ -80,14 +81,16 @@ Step 4 自查修改  → 用本文件末尾的《交稿前自查清单》逐项�
 | `references/prompt-analysis.md` | Step 1 必读。题型识别、题干拆解方法、立意生成、常见审题陷阱 |
 | `references/structure-and-outline.md` | Step 2 必读。五段骨架逐段写法、四种题型的结构变体、提纲模板 |
 | `references/language-and-style.md` | Step 3 必读。语言风格规范、句式库、标题拟法、首尾段写法与范例 |
-| `references/evidence-bank.md` | Step 3 必读。已验证的引证库（哲学家观点、人物事例、古诗文）及使用规则 |
+| `references/evidence-bank.md` | Step 3 必读。已逐条核验的引证库；每条标〔直引〕/〔转述〕/〔修正〕，〔转述〕条目不得加引号。完整来源见 `assets/evidence-audit.json`（按需） |
+| `references/de-template.md` | Step 3.5 必读。口头禅预算、段首多样性、标点节奏、"一路正确"解药、humanizer 条目处置表 |
+| `scripts/check_essay.py` + `assets/lint-rules.json` | 有代码执行时：写作端 `write`、修改端 `draft`/`diff`、核验端 `claims`。规则数字以 lint-rules.json 为准 |
 | `references/search-enhancement.md` | 具备网络搜索能力时必读（Step 0）。搜索时机表、四大搜索目的（审题校准/时代素材/引用核验/事实核验）、结果落实纪律 |
 | `references/exemplar-outline.md` | 需要完整参照时读。真题全流程示范（审题→提纲→关键段落），已覆盖A/B/C/D/E五种题型 |
 | `references/revision-and-upgrade.md` | 用户提供已有作文、要求修改/升格/诊断时必读。诊断→定位→局部升格的完整方法 |
 
 ## 硬性格式要求
 
-全文900-1000字（安全区间，题目要求"不少于800字"）；自拟标题；纯议论文，不写记叙文、书信体、小标题体；简体中文；不分点罗列，全部以连贯段落行文；段落数6-8段。若执行环境具备代码执行/字符计数工具，成文后应实际统计正文字数并核对是否落在900-1000字区间；不具备计数工具时，按分段字数配额估算（见language-and-style.md第8节）。
+全文900-1000字（安全区间，题目要求"不少于800字"）；自拟标题；纯议论文，不写记叙文、书信体、小标题体；简体中文；不分点罗列，全部以连贯段落行文；段落数6-8段。有代码执行时，成文后必须运行 `python scripts/check_essay.py write essay.md` 实测字数（含/不含标点两种口径，正文不含标题），而不是估算；不具备代码执行时，按分段字数配额估算（见language-and-style.md第8节）。
 
 ## 交稿前自查清单（Step 4，逐项核对）
 
@@ -100,7 +103,8 @@ Step 4 自查修改  → 用本文件末尾的《交稿前自查清单》逐项�
 7. 标题是否含观点/概念，题眼是否在正文至少出现两次？
 8. 结尾段是否回扣题干关键词并落在"人"的主体性上？
 9. "然而/但是"是否≤3次？有无小标题、序号、分点？
-10. 字数是否在900-1000字？若有计数工具，实际统计核验；否则逐段估算（不足则加厚阐释而非加例子）。
+10. 字数是否在900-1000字？有代码执行则 check_essay.py 实测并确认无 HARD 项；否则逐段估算（不足则加厚阐释而非加例子）。
+11. 口头禅（更值得警惕的是/诚然/归根结底/由此看来）是否各≤1次？连接词开头的段落是否≤3个？破折号≤2？（见 de-template.md）
 
 自查发现问题必须修改后再交付。若时间允许，模拟阅卷人视角通读一遍：第一段能否30秒内看出"审题准、观点明"？
 
