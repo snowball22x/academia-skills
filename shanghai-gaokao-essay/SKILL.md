@@ -9,18 +9,27 @@ description: Use whenever the user provides a Shanghai gaokao (上海高考) ess
 
 ## 任务类型判断（先做，再选流程）
 
-- 若用户只给了题目，要求写新文、审题、立意或列提纲 → 走下方《执行流程》的Step 0-4（"新写流程"）。
-- 若用户提供了一篇**已经写好的作文**（自己写的、AI写的、旧稿），要求修改、升格、诊断、点评、找问题、提分 → 改读 references/revision-and-upgrade.md，走该文件的诊断→定位→局部升格流程；不要直接套用下方Step 1-3从头重写，除非该文件判定必须推倒重来。
+先按用户给了什么来选模式；意图不明时按"是否贴了作文正文 → R；是否出现提纲/思路/怎么写/怎么立意/角度 → O；其余 → W"的顺序判断，仍不确定就问一句，**不要默认成文**。
+
+| 用户给了什么 | 模式 | 读什么 | 终点交付物 |
+|---|---|---|---|
+| 题目 + 要一篇文章 | **W 成文** | 下方《执行流程》Step 0-4 | 全文 + 证据账本 + 自查结果 |
+| 题目 + 要思路 / 审题 / 立意 / 提纲 / 素材 | **O 提纲** | references/mode-outline.md | 审题结论 + 3个立意候选与评估 + 提纲 + 已核验素材清单；**不成文** |
+| 题目 + 自己的立意想法（"我想写X角度行不行"） | **O·立意打磨** | references/mode-outline.md 第5节 | 对其立意的评估 + 优化方向 + 替代方案；不替换其立意 |
+| 题目 + 标题 + 已写好的作文，要修改/升格/点评 | **R 修改** | references/revision-and-upgrade.md | 默认：诊断报告 + 局部建议；用户明确要求"直接改"才给改稿（标题不动，改动幅度实测） |
+| 只有作文、没有题目 | 先问题目；给不出则推断题干并标注"推断" | 同 R | 审题项降级为"待确认" |
+
+四个模式共用同一套底座：证据账本与来源分级（references/search-enhancement.md、assets/evidence-ledger.md）、scripts/check_essay.py、de-template 规则、evidence-bank、assets/past-prompts.md。
 
 ## 执行流程（新写流程，严格按顺序，不可跳步）
 
 ```
 Step 0 能力判断  → 探测两项能力：①网络搜索（有则读 references/search-enhancement.md，按其时机表嵌入搜索动作）；②代码执行（有则可运行 scripts/check_essay.py，无则按文档里的人工清单自查）
 Step 1 审题拆解  → 读 references/prompt-analysis.md，完成审题清单（陌生概念/真题：先搜索校准）
-Step 2 立意与提纲 → 读 references/structure-and-outline.md，产出提纲（按素材缺口定向搜索，最多补2例）
+Step 2 立意与提纲 → 读 references/structure-and-outline.md，产出提纲；然后盘点素材缺口，**集中搜索核验并填写证据账本**（assets/evidence-ledger.md；成文中途不再搜索）
 Step 3 成文     → 读 references/language-and-style.md + references/evidence-bank.md，写全文（库外引用必须搜索核验）
 Step 3.5 去模板 → 读 references/de-template.md；有代码执行则 python scripts/check_essay.py write essay.md，只改被标出的句子和段首，最多2轮
-Step 4 自查修改  → 用本文件末尾的《交稿前自查清单》逐项核对，并按《分档自评表》打分；若某维度≤2分，回退到对应Step重做（而非在原文上小修），修改后交付
+Step 4 自查修改  → 先过账本闸门（`check_essay.py claims` 抽取的每个专名/引文/数字都能对上账本，无 dropped 残留）；再用本文件末尾的《交稿前自查清单》逐项核对，并按《分档自评表》打分；若某维度≤2分，回退到对应Step重做（而非在原文上小修），修改后交付
 ```
 
 每一步的输出（审题结论、提纲）必须先显式写出来再进入下一步，禁止直接一步成文。这是防止"审题浅、平均用力、观点不集中"这一AI最大失分点的核心机制。无搜索能力时跳过Step 0及所有搜索动作，离线流程自足可用。
@@ -84,9 +93,12 @@ Step 4 自查修改  → 用本文件末尾的《交稿前自查清单》逐项�
 | `references/evidence-bank.md` | Step 3 必读。已逐条核验的引证库；每条标〔直引〕/〔转述〕/〔修正〕，〔转述〕条目不得加引号。完整来源见 `assets/evidence-audit.json`（按需） |
 | `references/de-template.md` | Step 3.5 必读。口头禅预算、段首多样性、标点节奏、"一路正确"解药、humanizer 条目处置表 |
 | `scripts/check_essay.py` + `assets/lint-rules.json` | 有代码执行时：写作端 `write`、修改端 `draft`/`diff`、核验端 `claims`。规则数字以 lint-rules.json 为准 |
-| `references/search-enhancement.md` | 具备网络搜索能力时必读（Step 0）。搜索时机表、四大搜索目的（审题校准/时代素材/引用核验/事实核验）、结果落实纪律 |
-| `references/exemplar-outline.md` | 需要完整参照时读。真题全流程示范（审题→提纲→关键段落），已覆盖A/B/C/D/E五种题型 |
-| `references/revision-and-upgrade.md` | 用户提供已有作文、要求修改/升格/诊断时必读。诊断→定位→局部升格的完整方法 |
+| `references/search-enhancement.md` | 具备网络搜索能力时必读（Step 0）。证据账本、来源分级、按类型核验门槛、搜索动作A–F、落实纪律 |
+| `assets/evidence-ledger.md` | Step 2 之后填写的账本模板与交稿闸门 |
+| `references/mode-outline.md` | O 模式（只要思路/提纲/立意评估）必读 |
+| `assets/past-prompts.md` | 判断题目是否为上海卷历年真题，取官方专家点评链接；也是评测集 |
+| `references/exemplar-outline.md` | 需要完整参照时读。真题审题结论与提纲示范（审题→提纲，不含成文段落），已覆盖A/B/C/D/E五种题型 |
+| `references/revision-and-upgrade.md` + `assets/revision-report.md` | R 模式必读：用户提供已有作文并要求修改/升格/诊断。工作流、三种产出模式、硬规则与报告模板 |
 
 ## 硬性格式要求
 
