@@ -19,16 +19,16 @@ description: Use whenever the user provides a Shanghai gaokao (上海高考) ess
 | 题目 + 标题 + 已写好的作文，要修改/升格/点评 | **R 修改** | references/revision-and-upgrade.md | 默认：诊断报告 + 局部建议；用户明确要求"直接改"才给改稿（标题不动，改动幅度实测） |
 | 只有作文、没有题目 | 先问题目；给不出则推断题干并标注"推断" | 同 R | 审题项降级为"待确认" |
 
-四个模式共用同一套底座：证据账本与来源分级（references/search-enhancement.md、assets/evidence-ledger.md）、scripts/check_essay.py、de-template 规则、evidence-bank、assets/past-prompts.md。
+O 模式没有成稿，`check_essay.py claims` 对提纲噪声大，**素材对账手工完成**（逐个素材位对应到账本行）。四个模式共用同一套底座：证据账本与来源分级（references/search-enhancement.md、assets/evidence-ledger.md）、scripts/check_essay.py、de-template 规则、evidence-bank、assets/past-prompts.md。
 
 ## 执行流程（新写流程，严格按顺序，不可跳步）
 
 ```
-Step 0 能力判断  → 探测两项能力：①网络搜索（有则读 references/search-enhancement.md，按其时机表嵌入搜索动作）；②代码执行（有则可运行 scripts/check_essay.py，无则按文档里的人工清单自查）
+Step 0 能力判断  → 探测两项能力：①网络搜索（有则读 references/search-enhancement.md；注意 web_extract 常被"private network"拦截，默认改用 terminal 里的 curl -sL -A 'Mozilla/5.0' 抓页面）；②代码执行（有则可运行 scripts/check_essay.py，无则按文档里的人工清单自查）
 Step 1 审题拆解  → 读 references/prompt-analysis.md，完成审题清单（陌生概念/真题：先搜索校准）
 Step 2 立意与提纲 → 读 references/structure-and-outline.md，产出提纲；然后盘点素材缺口，**集中搜索核验并填写证据账本**（assets/evidence-ledger.md；成文中途不再搜索）
 Step 3 成文     → 读 references/language-and-style.md + references/evidence-bank.md，写全文（库外引用必须搜索核验）
-Step 3.5 去模板 → 读 references/de-template.md；有代码执行则 python scripts/check_essay.py write essay.md，只改被标出的句子和段首，最多2轮
+Step 3.5 去模板 → 读 references/de-template.md；有代码执行则 python scripts/check_essay.py write essay.md，只改被标出的句子和段首；措辞修改最多2轮（为满足字数的增删不计轮次）
 Step 4 自查修改  → 先过账本闸门（`check_essay.py claims` 抽取的每个专名/引文/数字都能对上账本，无 dropped 残留）；再用本文件末尾的《交稿前自查清单》逐项核对，并按《分档自评表》打分；若某维度≤2分，回退到对应Step重做（而非在原文上小修），修改后交付
 ```
 
@@ -73,7 +73,7 @@ Step 4 自查修改  → 先过账本闸门（`check_essay.py claims` 抽取的�
 | D 关系思辨型 | A与B的关系/张力 | 2026科技与想象 |
 | E 寓言设喻型 | 材料为寓言、比喻或自然现象类比 | 26二模青浦丑小鸭、"知识的岛屿" |
 
-所有题型共用一副**思辨五段骨架**（详见 references/structure-and-outline.md）：
+所有题型共用一副**思辨五段骨架**（详见 references/structure-and-outline.md）。"五段"指五个论证功能环节；落到文面通常是6个自然段（深掘分两段），6–8段均可（如让步或归因拆成两段）。各处出现的"五段骨架/六段各司其职/6–8段"说的是同一件事：
 
 1. **引论**：现象切入 → 概念界定 → 亮明中心论点（直接回应题干问法）
 2. **正论/让步**：承认题干观点（或某一方）的合理性，说明它回应了什么真实需求
@@ -97,12 +97,12 @@ Step 4 自查修改  → 先过账本闸门（`check_essay.py claims` 抽取的�
 | `assets/evidence-ledger.md` | Step 2 之后填写的账本模板与交稿闸门 |
 | `references/mode-outline.md` | O 模式（只要思路/提纲/立意评估）必读 |
 | `assets/past-prompts.md` | 判断题目是否为上海卷历年真题，取官方专家点评链接；也是评测集 |
-| `references/exemplar-outline.md` | 需要完整参照时读。真题审题结论与提纲示范（审题→提纲，不含成文段落），已覆盖A/B/C/D/E五种题型 |
+| `references/exemplar-outline.md` | 需要完整参照时读。**若用户的题目正是范例中的题，先独立完成审题与提纲，再对照范例，避免被锚定。**真题审题结论与提纲示范（审题→提纲，不含成文段落），已覆盖A/B/C/D/E五种题型 |
 | `references/revision-and-upgrade.md` + `assets/revision-report.md` | R 模式必读：用户提供已有作文并要求修改/升格/诊断。工作流、三种产出模式、硬规则与报告模板 |
 
 ## 硬性格式要求
 
-全文900-1000字（安全区间，题目要求"不少于800字"）；自拟标题；纯议论文，不写记叙文、书信体、小标题体；简体中文；不分点罗列，全部以连贯段落行文；段落数6-8段。有代码执行时，成文后必须运行 `python scripts/check_essay.py write essay.md` 实测字数（含/不含标点两种口径，正文不含标题），而不是估算；不具备代码执行时，按分段字数配额估算（见language-and-style.md第8节）。
+全文目标900-1000字（含标点，不含标题；这是推荐区间。官方只要求"不少于800字"，未见超字数扣分的规定，脚本的硬线是900–1100——**不要为了压进1000字而砍掉论证**；同时不含标点口径也应≥800）；自拟标题；纯议论文，不写记叙文、书信体、小标题体；简体中文；不分点罗列，全部以连贯段落行文；段落数6-8段。有代码执行时，成文后必须运行 `python scripts/check_essay.py write essay.md` 实测字数（含/不含标点两种口径，正文不含标题），而不是估算；不具备代码执行时，按分段字数配额估算（见language-and-style.md第8节）。
 
 ## 交稿前自查清单（Step 4，逐项核对）
 

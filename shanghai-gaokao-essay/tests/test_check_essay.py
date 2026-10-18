@@ -240,6 +240,47 @@ class ClaimsTests(unittest.TestCase):
         self.assertEqual([x for x in c if x["kind"] == "quote"], [])
 
 
+class LengthBandTests(unittest.TestCase):
+    def setUp(self):
+        self.rules = load_rules()
+
+    def test_between_1000_and_1100_is_soft_only(self):
+        r = ce.analyze(make_essay(sizes=(150, 200, 200, 200, 200, 100)), self.rules, mode="write")
+        self.assertEqual(sum(r["metrics"]["paragraph_chars"]), 1050)
+        self.assertNotIn("length_out_of_range", ids(r, "hard"))
+        self.assertIn("length_above_recommended", ids(r, "soft"))
+
+    def test_above_1100_is_hard(self):
+        r = ce.analyze(make_essay(sizes=(150, 250, 250, 250, 250, 100)), self.rules, mode="write")
+        self.assertIn("length_out_of_range", ids(r, "hard"))
+
+
+class ClaimsV2Tests(unittest.TestCase):
+    def setUp(self):
+        self.rules = load_rules()
+
+    def test_known_entities_detected(self):
+        text = "标题\n梵高生前画作销路极差。费斯汀格提出社会比较理论，伽利略用望远镜看月面。\n"
+        c = ce.extract_claims(text, self.rules)
+        ents = {x["text"] for x in c if x["kind"] == "entity"}
+        self.assertTrue({"梵高", "费斯汀格", "伽利略"} <= ents)
+
+    def test_speaker_requires_quote_or_colon_after_verb(self):
+        text = "标题\n他听了之后说得很好。这样的时刻认为很多。鲁迅说：“无穷的远方，无数的人们，都和我有关。”\n"
+        c = ce.extract_claims(text, self.rules)
+        sp = [x["text"] for x in c if x["kind"] == "speaker"]
+        self.assertEqual(sp, ["鲁迅"])
+
+    def test_ledger_reconciliation(self):
+        text = "标题\n梵高生前画作销路极差。《红楼梦》在小圈子传抄。2015年屠呦呦获奖。\n"
+        ledger = "| E1 | 梵高 | ... |\n| E2 | 红楼梦 | ... |"
+        c = ce.extract_claims(text, self.rules, ledger_text=ledger)
+        by = {x["text"]: x["in_ledger"] for x in c}
+        self.assertTrue(by["梵高"])
+        self.assertTrue(by["红楼梦"])
+        self.assertFalse(by["2015年"])
+
+
 class CliTests(unittest.TestCase):
     def run_cli(self, *args):
         return subprocess.run([sys.executable, SCRIPT, *args], capture_output=True, text=True, encoding="utf8")

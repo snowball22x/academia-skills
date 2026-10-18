@@ -151,9 +151,13 @@ def analyze(text: str, rules: dict, mode: str = "write", keywords=None, title: s
                 _find(findings, "banned_title", "hard", f"标题含烂俗意象“{w}”", "title")
 
     # --- length
-    if not (lr["min_with_punct"] <= cc["with_punct"] <= lr["max_with_punct"]):
+    hard_max = lr.get("hard_max_with_punct", lr["max_with_punct"])
+    if not (lr["min_with_punct"] <= cc["with_punct"] <= hard_max):
         _find(findings, "length_out_of_range", "hard",
-              f"正文{cc['with_punct']}字（含标点），目标{lr['min_with_punct']}–{lr['max_with_punct']}")
+              f"正文{cc['with_punct']}字（含标点），硬性范围{lr['min_with_punct']}–{hard_max}（推荐{lr['min_with_punct']}–{lr['max_with_punct']}）")
+    elif cc["with_punct"] > lr["max_with_punct"]:
+        _find(findings, "length_above_recommended", "soft",
+              f"正文{cc['with_punct']}字，超出推荐上限{lr['max_with_punct']}（官方只要求不少于{lr['exam_minimum']}字，超出不扣分，但不要为压线砍掉论证；也不要靠堆例子凑长）")
     if cc["without_punct"] < lr["exam_minimum"]:
         _find(findings, "length_no_punct_below_min", "soft",
               f"不计标点仅{cc['without_punct']}字，若阅卷口径不计标点则可能不足{lr['exam_minimum']}字；加厚阐释而非加例子")
@@ -322,12 +326,16 @@ def diff_essays(old_text: str, new_text: str) -> dict:
 
 
 # ----------------------------------------------------------------- claims
-def extract_claims(text: str, rules: dict | None = None) -> list[dict]:
+def extract_claims(text: str, rules: dict | None = None, ledger_text: str | None = None) -> list[dict]:
+    """Extract statements that need a ledger row. Aid only: incomplete (misses names not in
+    claims.known_entities) and noisy; the agent must still read the essay for named facts."""
     rules = rules or load_rules()
     min_q = rules["claims"]["min_quote_chars"]
     stop = set(rules["claims"]["speaker_stoplist"])
+    entities = rules["claims"].get("known_entities", [])
     t, body = split_title_body(text)
     out: list[dict] = []
+    seen_entities: set[str] = set()
 
     def add(kind, txt, para):
         out.append({"id": f"C{len(out) + 1}", "kind": kind, "text": txt, "para": para})
@@ -341,10 +349,20 @@ def extract_claims(text: str, rules: dict | None = None) -> list[dict]:
             add("year", m.group(0), i)
         for m in re.finditer(r"\d+(?:\.\d+)?\s?(?:%|％|万|亿|千|百|倍|个|人|次|项|岁|米|公里|元)", p):
             add("number", m.group(0), i)
-        for m in re.finditer(r"([一-龥·]{2,4}?)(?:说|曰|云|写道|指出|认为|提出|称)", p):
+        for m in re.finditer(r"(?:^|(?<=[，。；：！？“”\s]))([一-龥·]{2,4}?)(?:曾|也|早|又|却|则|便|就|都|还)?(?:说|曰|云|写道|指出|认为|提出|称)[：:，,]?(?=[“「])", p):
             name = m.group(1)
-            if name not in stop and len(name) >= 2:
+            if name not in stop and name[-1] not in "着了过地却则便就都还":
                 add("speaker", name, i)
+        for e in entities:
+            if e in p and e not in seen_entities:
+                seen_entities.add(e)
+                add("entity", e, i)
+    if ledger_text is not None:
+        for c in out:
+            key = c["text"]
+            if c["kind"] == "year":
+                key = key.rstrip("年")
+            c["in_ledger"] = key in ledger_text
     return out
 
 
@@ -390,6 +408,7 @@ def main(argv=None) -> int:
     sp = sub.add_parser("claims")
     sp.add_argument("essay")
     sp.add_argument("--rules")
+    sp.add_argument("--ledger", help="evidence ledger file; marks each claim in_ledger and exits 1 if any non-speaker claim is missing")
     args = ap.parse_args(argv)
     try:
         if args.cmd in ("write", "draft"):
@@ -402,7 +421,14 @@ def main(argv=None) -> int:
             print(json.dumps(diff_essays(_read(args.old), _read(args.new)), ensure_ascii=False, indent=2))
             return 0
         if args.cmd == "claims":
-            print(json.dumps(extract_claims(_read(args.essay), load_rules(args.rules)), ensure_ascii=False, indent=2))
+            ledger = _read(args.ledger) if args.ledger else None
+            claims = extract_claims(_read(args.essay), load_rules(args.rules), ledger_text=ledger)
+            print(json.dumps(claims, ensure_ascii=False, indent=2))
+            if ledger is not None:
+                missing = [c for c in claims if not c["in_ledger"] and c["kind"] != "speaker"]
+                if missing:
+                    print("ledger missing: " + ", ".join(f"{c['kind']}:{c['text']}" for c in missing), file=sys.stderr)
+                    return 1
             return 0
     except (OSError, json.JSONDecodeError) as e:
         print(f"error: {e}", file=sys.stderr)
