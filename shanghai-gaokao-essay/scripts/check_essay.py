@@ -79,23 +79,52 @@ def _find(f, fid, level, msg, where=None):
     f.append({"id": fid, "level": level, "msg": msg, "where": where})
 
 
-def punct_errors(paragraphs: list[str]) -> int:
-    n = 0
-    for p in paragraphs:
+def punct_error_details(paragraphs: list[str]) -> list[dict]:
+    """Locate punctuation problems: unpaired quotes/brackets/书名号, ASCII straight quotes, doubled punctuation."""
+    out = []
+
+    def snip(p, i):
+        return p[max(0, i - 6): i + 10]
+
+    for pi, p in enumerate(paragraphs, 1):
         stack = []
-        for c in p:
+        for i, c in enumerate(p):
             if c in PAIRS:
-                stack.append(c)
+                stack.append((c, i))
             elif c in CLOSERS:
-                if stack and stack[-1] == CLOSERS[c]:
+                if stack and stack[-1][0] == CLOSERS[c]:
                     stack.pop()
                 else:
-                    n += 1
-        n += len(stack)
-        n += math.ceil(p.count('"') / 2) if '"' in p else 0
-        n += len(re.findall(r"([，。；：、！？])\1", p))
-        n += len(re.findall(r"，。", p))
-    return n
+                    out.append({"para": pi, "kind": f"stray_closer {c}", "snippet": snip(p, i)})
+        for c, i in stack:
+            out.append({"para": pi, "kind": f"unclosed {c}", "snippet": snip(p, i)})
+        if '"' in p:
+            first = p.index('"')
+            for _ in range(math.ceil(p.count('"') / 2)):
+                out.append({"para": pi, "kind": "ascii_quote", "snippet": snip(p, first)})
+        for m in re.finditer(r"([，。；：、！？])\1|，。", p):
+            out.append({"para": pi, "kind": "doubled_punct", "snippet": snip(p, m.start())})
+    return out
+
+
+def punct_errors(paragraphs: list[str]) -> int:
+    return len(punct_error_details(paragraphs))
+
+
+ORDINAL_OPENERS = ("首先", "其次", "再次", "最后", "第一", "第二", "第三", "一方面", "另一方面")
+BOUNDARY_MARKERS = ("未必", "不一定", "并不", "不等于", "只在", "前提", "局限", "边界", "异化", "代价", "一旦", "反而", "并非")
+
+
+def parallel_legs(paragraphs: list[str]) -> bool:
+    """Heuristic: >=3 body paragraphs opening with ordinal words, or >=3 consecutive paragraphs sharing the same first 2 chars."""
+    if sum(1 for p in paragraphs if p.startswith(ORDINAL_OPENERS)) >= 3:
+        return True
+    run = 1
+    for a_, b_ in zip(paragraphs, paragraphs[1:]):
+        run = run + 1 if a_[:2] == b_[:2] else 1
+        if run >= 3:
+            return True
+    return False
 
 
 def parallelism_runs(paragraphs: list[str]) -> int:
@@ -235,9 +264,15 @@ def analyze(text: str, rules: dict, mode: str = "write", keywords=None, title: s
         if n < 2:
             _find(findings, "keyword_low", "soft", f"题眼“{kw}”正文仅出现{n}次，应至少2次")
 
-    perr = punct_errors(body)
-    if perr > 3:
-        _find(findings, "punct_errors", "soft", f"标点错误{perr}处（>3处酌情扣分）")
+    pdet = punct_error_details(body)
+    perr = len(pdet)
+    if perr:
+        where = "；".join(f"第{d['para']}段「{d['snippet']}」{d['kind']}" for d in pdet[:6])
+        _find(findings, "punct_errors", "soft", f"标点错误{perr}处" + ("（>3处酌情扣分）" if perr > 3 else "") + "：" + where)
+    if parallel_legs(body):
+        _find(findings, "parallel_legs", "soft", "疑似并列三条腿结构（首先/其次/再次，或连续段首相同）：分论点应递进或让步-立论，不要并列")
+    if mode == "draft" and sum(body_text.count(w) for w in BOUNDARY_MARKERS) < 2:
+        _find(findings, "weak_boundary_layer", "soft", "（启发式）全文几乎没有限定/边界/代价类表达，可能缺边界层与异化分析；需人工确认")
 
     report = {
         "mode": mode,
@@ -256,6 +291,7 @@ def analyze(text: str, rules: dict, mode: str = "write", keywords=None, title: s
             "sentence_len_stdev": round(stdev, 1),
             "keywords": kw_report,
             "punct_errors": perr,
+            "punct_error_details": pdet,
         },
         "findings": findings,
     }
@@ -316,6 +352,10 @@ def diff_essays(old_text: str, new_text: str) -> dict:
                     paras.append({"new_index": j1 + k + 1, "old_index": None, "status": "added", "similarity": 0.0})
                 else:
                     removed.append({"new_index": None, "old_index": i1 + k + 1, "status": "removed", "similarity": 0.0})
+    split = lambda ps: [x.strip() for p_ in ps for x in re.split(r"(?<=[。！？；])", p_) if x.strip()]
+    old_s, new_s = split(ob), split(nb)
+    new_set, old_set = set(new_s), set(old_s)
+    changed_old = sum(1 for x in old_s if x not in new_set)
     old_body, new_body = "\n".join(ob), "\n".join(nb)
     ratio = difflib.SequenceMatcher(None, old_body, new_body, autojunk=False).ratio() if (old_body or new_body) else 1.0
     return {
@@ -323,6 +363,8 @@ def diff_essays(old_text: str, new_text: str) -> dict:
         "old_title": ot,
         "new_title": nt,
         "changed_ratio": round(1 - ratio, 3),
+        "old_sentences_changed_ratio": round(changed_old / len(old_s), 3) if old_s else 0.0,
+        "new_sentences_added": sum(1 for x in new_s if x not in old_set),
         "old_chars": count_chars(old_body)["with_punct"],
         "new_chars": count_chars(new_body)["with_punct"],
         "paragraphs": paras + removed,
@@ -428,6 +470,8 @@ def main(argv=None) -> int:
             ledger = _read(args.ledger) if args.ledger else None
             claims = extract_claims(_read(args.essay), load_rules(args.rules), ledger_text=ledger)
             print(json.dumps(claims, ensure_ascii=False, indent=2))
+            if not claims:
+                print("no claims extracted (no 书名号/引号引文/年份/数字/名单内人名)；仍请通读确认没有漏抽的事实", file=sys.stderr)
             if ledger is not None:
                 missing = [c for c in claims if not c["in_ledger"] and c["kind"] != "speaker"]
                 if missing:

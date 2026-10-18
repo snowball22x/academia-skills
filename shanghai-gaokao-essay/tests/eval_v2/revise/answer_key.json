@@ -1,0 +1,162 @@
+[
+ {
+  "draft": "d1",
+  "defect_id": "D1-a",
+  "description": "立意偏：文章从'认可度是什么及其局限'滑向'如何获得他人认可/个人成功'，第5-6段尤其明显",
+  "paragraph_index": 5,
+  "exact_text_if_any": "那么，我们怎样才能获得别人的认可呢？",
+  "must_preserve": [
+   "全文事实均正确，无其他缺陷"
+  ]
+ },
+ {
+  "draft": "d1",
+  "defect_id": "D1-b",
+  "description": "平均用力：第2-4段个人/社会/国家三段并列，无统一中心论点，也无对认可度局限的分析",
+  "paragraph_index": 2,
+  "exact_text_if_any": "首先，认可度对个人很重要。 / 其次，认可度对社会也很重要。 / 再次，认可度对国家也很重要。",
+  "must_preserve": []
+ },
+ {
+  "draft": "d2",
+  "defect_id": "D2-a",
+  "description": "片面：全文无让步段（'酒香'确有成立之处、好文章可自传）也无边界/异化层（为转而转、迎合流量、质量被稀释）",
+  "paragraph_index": 0,
+  "exact_text_if_any": "",
+  "must_preserve": [
+   "苏轼《前赤壁赋》作于黄州（真实、正确，须保留）"
+  ]
+ },
+ {
+  "draft": "d2",
+  "defect_id": "D2-b",
+  "description": "【虚构引文】鲁迅从未写过此句，应删除或替换为可靠出处",
+  "paragraph_index": 3,
+  "exact_text_if_any": "鲁迅先生说过：“好文章要有人读，读的人多了，才算没有白写。”",
+  "must_preserve": []
+ },
+ {
+  "draft": "d2",
+  "defect_id": "D2-c",
+  "description": "【张冠李戴】《题西林壁》作者是苏轼，不是黄庭坚",
+  "paragraph_index": 4,
+  "exact_text_if_any": "再比如黄庭坚的《题西林壁》",
+  "must_preserve": []
+ },
+ {
+  "draft": "d2",
+  "defect_id": "D2-d",
+  "description": "【正确例子-须保留】苏轼被贬黄州时写《前赤壁赋》(1082年)，事实正确",
+  "paragraph_index": 4,
+  "exact_text_if_any": "苏轼被贬到黄州以后，写下了《前赤壁赋》",
+  "must_preserve": [
+   "苏轼《前赤壁赋》写于黄州 这一例子必须保留"
+  ]
+ },
+ {
+  "draft": "d3",
+  "defect_id": "D3-a",
+  "description": "篇幅过短：正文约768字，低于800字",
+  "paragraph_index": 0,
+  "exact_text_if_any": "",
+  "must_preserve": []
+ },
+ {
+  "draft": "d3",
+  "defect_id": "D3-b1",
+  "description": "模板腔：第2段以'诚然'开头",
+  "paragraph_index": 2,
+  "exact_text_if_any": "诚然，",
+  "must_preserve": []
+ },
+ {
+  "draft": "d3",
+  "defect_id": "D3-b2",
+  "description": "模板腔：第4段以'更值得警惕的是'开头",
+  "paragraph_index": 4,
+  "exact_text_if_any": "更值得警惕的是，",
+  "must_preserve": []
+ },
+ {
+  "draft": "d3",
+  "defect_id": "D3-b3",
+  "description": "模板腔：第5段以'由此看来'开头",
+  "paragraph_index": 5,
+  "exact_text_if_any": "由此看来，",
+  "must_preserve": []
+ },
+ {
+  "draft": "d3",
+  "defect_id": "D3-b4",
+  "description": "模板腔：末段以'归根结底'开头",
+  "paragraph_index": 6,
+  "exact_text_if_any": "归根结底，",
+  "must_preserve": []
+ },
+ {
+  "draft": "d3",
+  "defect_id": "D3-b5",
+  "description": "破折号过多：全文共5处'——'（第3段2处，第4、5、6段各1处）",
+  "paragraph_index": 0,
+  "exact_text_if_any": "——",
+  "must_preserve": []
+ },
+ {
+  "draft": "d3",
+  "defect_id": "D3-c1",
+  "description": "错别字：'必需'误用，应为'必须'",
+  "paragraph_index": 4,
+  "exact_text_if_any": "就必需认真地积累",
+  "must_preserve": []
+ },
+ {
+  "draft": "d3",
+  "defect_id": "D3-c2",
+  "description": "错别字：'在接再厉'应为'再接再厉'",
+  "paragraph_index": 5,
+  "exact_text_if_any": "也要在接再厉",
+  "must_preserve": []
+ },
+ {
+  "draft": "d3",
+  "defect_id": "D3-c3",
+  "description": "标点：连续两个逗号",
+  "paragraph_index": 2,
+  "exact_text_if_any": "方式，，这一点才是关键",
+  "must_preserve": []
+ },
+ {
+  "draft": "d3",
+  "defect_id": "D3-c4",
+  "description": "标点：西文直引号 \"意外\"，应为中文引号“意外”",
+  "paragraph_index": 4,
+  "exact_text_if_any": "\"意外\"",
+  "must_preserve": []
+ },
+ {
+  "draft": "d3",
+  "defect_id": "D3-c5",
+  "description": "标点：书名号不成对 《史记 缺 》",
+  "paragraph_index": 5,
+  "exact_text_if_any": "《史记中写的那样",
+  "must_preserve": []
+ },
+ {
+  "draft": "d3",
+  "defect_id": "D3-c6",
+  "description": "标点：句末连续两个句号",
+  "paragraph_index": 4,
+  "exact_text_if_any": "下一次成绩就上去了。。",
+  "must_preserve": []
+ },
+ {
+  "draft": "d3",
+  "defect_id": "D3-d",
+  "description": "优点-须保留：弗莱明发现青霉素的具体例子，论证到位（意外→观察→积累）",
+  "paragraph_index": 3,
+  "exact_text_if_any": "以青霉素的发现为例。",
+  "must_preserve": [
+   "第3段青霉素例子须保留"
+  ]
+ }
+]

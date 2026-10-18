@@ -288,6 +288,41 @@ class ClaimsV2Tests(unittest.TestCase):
         self.assertFalse(by["2015年"])
 
 
+
+class DraftV2Tests(unittest.TestCase):
+    def setUp(self):
+        self.rules = load_rules()
+
+    def test_punct_errors_are_located(self):
+        text = make_essay(extra="他说“好，又说《书名，")
+        r = ce.analyze(text, self.rules, mode="draft")
+        det = r["metrics"]["punct_error_details"]
+        self.assertTrue(det and all("para" in d and "snippet" in d and "kind" in d for d in det))
+        self.assertEqual({d["para"] for d in det}, {2})
+        self.assertIn("punct_errors", ids(r))
+
+    def test_parallel_legs_soft(self):
+        paras = [para(150), "首先，" + para(150), "其次，" + para(150), "再次，" + para(150), para(150), para(150)]
+        text = "标题\n" + "\n".join(paras) + "\n"
+        r = ce.analyze(text, self.rules, mode="draft")
+        self.assertIn("parallel_legs", ids(r, "soft"))
+
+    def test_weak_boundary_layer_heuristic(self):
+        r = ce.analyze(make_essay(), self.rules, mode="draft")
+        self.assertIn("weak_boundary_layer", ids(r, "soft"))
+        r2 = ce.analyze(make_essay(extra="这未必成立，一旦绝对化便有代价，"), self.rules, mode="draft")
+        self.assertNotIn("weak_boundary_layer", ids(r2))
+
+
+class DiffSentenceTests(unittest.TestCase):
+    def test_sentence_level_ratio(self):
+        old = "标题\n甲一。甲二。甲三。甲四。\n乙一。乙二。\n"
+        new = "标题\n甲一。甲二改。甲三。甲四。新加一句。\n乙一。乙二。\n"
+        d = ce.diff_essays(old, new)
+        self.assertAlmostEqual(d["old_sentences_changed_ratio"], 1 / 6, places=2)
+        self.assertEqual(d["new_sentences_added"], 2)  # the edited sentence and the new one
+
+
 class CliTests(unittest.TestCase):
     def run_cli(self, *args):
         return subprocess.run([sys.executable, SCRIPT, *args], capture_output=True, text=True, encoding="utf8")
