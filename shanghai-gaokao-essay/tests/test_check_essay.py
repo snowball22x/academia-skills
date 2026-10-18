@@ -173,6 +173,13 @@ class DraftChecks(unittest.TestCase):
         self.assertEqual(d["no_title"], 2)
         self.assertEqual(d["length_shortfall_with_punct"], 4)  # 800-~640 -> ceil(160/50)=4
 
+    def test_draft_mode_uses_exam_minimum_for_hard_length(self):
+        r = ce.analyze(make_essay(sizes=(130, 140, 150, 150, 150, 120)), self.rules, mode="draft")  # 840 chars
+        self.assertNotIn("length_out_of_range", ids(r, "hard"))
+        self.assertIn("length_below_recommended", ids(r, "soft"))
+        r2 = ce.analyze(make_essay(sizes=(130, 130, 130, 130, 130, 100)), self.rules, mode="draft")  # 750 chars
+        self.assertIn("length_out_of_range", ids(r2, "hard"))
+
     def test_no_deduction_for_adequate_essay(self):
         r = ce.analyze(make_essay(sizes=(150, 200, 200, 200, 200, 100)), self.rules, mode="draft")
         self.assertEqual(r["deductions"]["no_title"], 0)

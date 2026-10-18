@@ -152,9 +152,13 @@ def analyze(text: str, rules: dict, mode: str = "write", keywords=None, title: s
 
     # --- length
     hard_max = lr.get("hard_max_with_punct", lr["max_with_punct"])
-    if not (lr["min_with_punct"] <= cc["with_punct"] <= hard_max):
+    hard_min = lr["exam_minimum"] if mode == "draft" else lr["min_with_punct"]
+    if mode == "draft" and hard_min <= cc["with_punct"] < lr["min_with_punct"]:
+        _find(findings, "length_below_recommended", "soft",
+              f"正文{cc['with_punct']}字，达到官方下限{hard_min}但低于推荐{lr['min_with_punct']}；不含标点口径{cc['without_punct']}字，若不计标点则可能不足")
+    if not (hard_min <= cc["with_punct"] <= hard_max):
         _find(findings, "length_out_of_range", "hard",
-              f"正文{cc['with_punct']}字（含标点），硬性范围{lr['min_with_punct']}–{hard_max}（推荐{lr['min_with_punct']}–{lr['max_with_punct']}）")
+              f"正文{cc['with_punct']}字（含标点），硬性范围{hard_min}–{hard_max}（推荐{lr['min_with_punct']}–{lr['max_with_punct']}）")
     elif cc["with_punct"] > lr["max_with_punct"]:
         _find(findings, "length_above_recommended", "soft",
               f"正文{cc['with_punct']}字，超出推荐上限{lr['max_with_punct']}（官方只要求不少于{lr['exam_minimum']}字，超出不扣分，但不要为压线砍掉论证；也不要靠堆例子凑长）")
